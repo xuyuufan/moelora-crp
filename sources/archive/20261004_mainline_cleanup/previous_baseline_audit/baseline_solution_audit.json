@@ -1,0 +1,216 @@
+{
+  "title": "Baseline Solution Audit",
+  "generated_at": "2026-09-21T01:13:40+08:00",
+  "scope": {
+    "checked": [
+      "GP released solution legality and relocation counts",
+      "Leveling released solution legality and relocation counts",
+      "MoE released checkpoint inference legality and relocation counts",
+      "horizon information boundary",
+      "dataset and checkpoint provenance"
+    ],
+    "not_done": [
+      "algorithm changes",
+      "model changes",
+      "retraining",
+      "interface unification",
+      "shared validator integration"
+    ]
+  },
+  "overall_status": "PASS",
+  "correctness_problem_affecting_fair_baseline_comparison": false,
+  "gp": {
+    "status": "PASS",
+    "validation": "FULL",
+    "formal_runs": 120,
+    "unique_test_instances": 840,
+    "episode_solutions_checked": 100800,
+    "relocation_decisions_checked": 2992283,
+    "illegal_actions": 0,
+    "count_mismatches": 0,
+    "final_yards_valid": 100800,
+    "horizons": [20],
+    "visible_target_counts": [21],
+    "terminal_sets": ["C", "C+E", "C+O", "C+E+O"],
+    "seeds_checked": 120,
+    "hidden_suffix_metamorphic_pairs": 120,
+    "future_information_leakage_detected": false,
+    "training_instances": 840,
+    "training_test_overlap": 0,
+    "config_sha256": "e4ae0339361e3b9321410e8d7fc0415d2e0c2e87eba6190cf425b091c2e96a3b",
+    "implementation_sha256": "19b2f3421d688e8d05a2d4b376b31dcf2f072d2bef8ec20d145a9c5f634d52d2",
+    "reporting_implementation_sha256": "f8f5571de176aaf466137c43c3ede3fed4014c5ad3d68641fb9ff5e88a67305d",
+    "training_manifest_sha256": "9dfaf66cce987d70cad2673089c27aea75af1a82e060d043f351218b665384c6",
+    "test_manifest_sha256": "c28c975c8026a59a1b7995f8afe8a41e9e48b469835b9d2227a9bbe7a5371a12",
+    "reporting_issue": {
+      "status": "RESOLVED",
+      "severity": "LOW",
+      "file": "GP/summary.py",
+      "function": "_plot_convergence",
+      "error": "ValueError: zip() argument 2 is shorter than argument 1",
+      "original_effect": "The single-horizon H=20 run did not produce convergence.png and the driver exited nonzero after numerical artifacts were written.",
+      "resolution": "Subplot dimensions now follow the configured horizon count and plotting uses the non-interactive Matplotlib Figure API.",
+      "verification": "The formal 120-run H=20 summarize command exited 0 and produced GP/results/h20_four_terminal_sets/convergence.png.",
+      "affects_solution_or_relocation_count": false,
+      "episode_results_unchanged": true
+    }
+  },
+  "leveling": {
+    "status": "PASS",
+    "validation": "FULL",
+    "unique_test_instances": 840,
+    "reported_rows_checked": 3360,
+    "relocation_decisions_checked": 36024,
+    "illegal_actions": 0,
+    "count_mismatches": 0,
+    "final_yards_valid": 840,
+    "expected_total_relocations": 36024,
+    "replayed_total_relocations": 36024,
+    "strict_36024_match": true,
+    "horizon_dependency": false,
+    "future_information_leakage_detected": false,
+    "test_manifest_sha256": "c28c975c8026a59a1b7995f8afe8a41e9e48b469835b9d2227a9bbe7a5371a12"
+  },
+  "moe": {
+    "status": "PASS",
+    "validation": "FULL",
+    "inference": "greedy_fp32",
+    "training_horizon": 20,
+    "horizon_definition": "the current target plus up to H future targets",
+    "caserta_evaluation_horizons": [0, 5, 10, 20],
+    "sealed_evaluation_horizon": 20,
+    "action_mapping": "argmax index is the zero-based destination stack index",
+    "action_masking": "source stack and full stacks are masked to -Infinity before argmax",
+    "illegal_action_handling": "no fallback, retry, or post-hoc correction; selecting a forbidden action raises",
+    "padding_behavior": "formal evaluators use exactly num_stacks outputs; no padded stack enters the action dimension",
+    "illegal_actions_after_mask": 0,
+    "count_mismatches": 0,
+    "future_information_leakage_detected": false,
+    "raw_unmasked_argmax_illegal_on_caserta": {
+      "MoE_seed20260913": 339,
+      "MoE_seed20260923": 355,
+      "MoE_seed20260933": 354,
+      "interpretation": "counterfactual only; the released evaluator masks these choices before argmax"
+    },
+    "caserta": {
+      "role": "external public benchmark not used for selection",
+      "validation": "FULL",
+      "unique_instances": 840,
+      "adapter_episode_solutions_checked": 10080,
+      "adapter_relocation_decisions_checked": 349767,
+      "base_reference_episode_solutions_checked": 3360,
+      "base_reference_relocation_decisions_checked": 122816,
+      "final_yards_valid": 13440,
+      "manifest_sha256": "c28c975c8026a59a1b7995f8afe8a41e9e48b469835b9d2227a9bbe7a5371a12",
+      "total_relocations": {
+        "MoE_seed20260913": {"H0": 36672, "H5": 29335, "H10": 26381, "H20": 24028},
+        "MoE_seed20260923": {"H0": 36872, "H5": 29379, "H10": 26409, "H20": 24027},
+        "MoE_seed20260933": {"H0": 36875, "H5": 29365, "H10": 26397, "H20": 24027}
+      }
+    },
+    "sealed": {
+      "role": "official sealed large-scale test",
+      "validation": "FULL",
+      "unique_instances": 500,
+      "adapter_episode_solutions_checked": 1500,
+      "adapter_relocation_decisions_checked": 174305,
+      "final_yards_valid": 1500,
+      "test_manifest_used_for_selection": false,
+      "manifest_sha256": "f39dd732223255efe118b019aa699261262fd1946665544560b0f009acf6203a",
+      "total_relocations": {
+        "MoE_seed20260913": 58163,
+        "MoE_seed20260923": 58074,
+        "MoE_seed20260933": 58068
+      }
+    },
+    "provenance": {
+      "base_checkpoint": "Mijn_RL/checkpoints/h20.best.pt",
+      "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+      "train_instances": 1024,
+      "validation_instances": 200,
+      "sealed_test_instances": 500,
+      "caserta_instances": 840,
+      "all_pairwise_split_overlaps": 0,
+      "adapters": {
+        "MoE_seed20260913": {
+          "checkpoint": "Mijn_RL/output/moe_lora_long_20260917_seed20260913/best.adapter.pt",
+          "sha256": "a4c83c37cd20b8867ce679aace0087a2833f7d998d297a90d2d2b894128ce47b",
+          "seed": 20260913,
+          "selected_epoch": 2
+        },
+        "MoE_seed20260923": {
+          "checkpoint": "Mijn_RL/output/moe_lora_long_20260917_seed20260923/best.adapter.pt",
+          "sha256": "63d0b77a0a4e5c79ba65c508d985e81cc41be80928eb4bd3b429c5f705496c0a",
+          "seed": 20260923,
+          "selected_epoch": 2
+        },
+        "MoE_seed20260933": {
+          "checkpoint": "Mijn_RL/output/moe_lora_long_20260917_seed20260933/best.adapter.pt",
+          "sha256": "abf410c8ac6fc155afb821830f99adf2ff96b8ff21c52a02e048ddcc9bc60058",
+          "seed": 20260933,
+          "selected_epoch": 4
+        }
+      }
+    }
+  },
+  "validation_coverage": [
+    {
+      "method": "GP",
+      "instances_checked": "100800 solution replays (840 instances x 120 rules)",
+      "full_or_sampled": "FULL",
+      "illegal_actions": 0,
+      "count_mismatches": 0,
+      "final_yard_valid": true
+    },
+    {
+      "method": "Leveling",
+      "instances_checked": "840 solution replays (3360 reported horizon rows cross-checked)",
+      "full_or_sampled": "FULL",
+      "illegal_actions": 0,
+      "count_mismatches": 0,
+      "final_yard_valid": true
+    },
+    {
+      "method": "MoE",
+      "instances_checked": "11580 adapter solution replays (10080 Caserta + 1500 sealed)",
+      "full_or_sampled": "FULL",
+      "illegal_actions": 0,
+      "count_mismatches": 0,
+      "final_yard_valid": true
+    }
+  ],
+  "tests": {
+    "gp_and_leveling": {
+      "command": "py -3.12 -m pytest GP\\tests Leveling\\tests -q",
+      "result": "54 passed"
+    },
+    "moe": {
+      "working_directory": "Mijn_RL",
+      "command": "py -3.12 -m pytest tests\\test_moe_lora.py tests\\test_release_artifacts.py -q",
+      "result": "11 passed, 2 pytest-cache ACL warnings"
+    }
+  },
+  "audit_artifacts": {
+    "script": "baseline_solution_audit.py",
+    "script_sha256": "7379ec2cf7948511143795355dd04eaa8a91d6127ffb20e15da274a4dbcb745f",
+    "evidence_directory": "baseline_solution_audit_work",
+    "report": "baseline_solution_audit.md",
+    "machine_readable_report": "baseline_solution_audit.json"
+  },
+  "detected_issues": [
+    {
+      "algorithm": "GP reporting pipeline",
+      "status": "RESOLVED",
+      "severity": "LOW",
+      "file": "GP/summary.py",
+      "function": "_plot_convergence",
+      "expected": "single-horizon H=20 summarization produces convergence.png and exits successfully",
+      "actual_before_fix": "strict zip compared four axes with one configured horizon and raised after numerical artifacts were written",
+      "affects_relocation_count": false,
+      "affects_baseline_solution_correctness": false,
+      "fix_applied": "dynamic subplot layout, hidden unused axes, non-interactive Figure backend, and separate run/reporting implementation hashes",
+      "verified": true,
+      "convergence_plot": "GP/results/h20_four_terminal_sets/convergence.png"
+    }
+  ]
+}

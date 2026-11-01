@@ -1,0 +1,32 @@
+{
+  "domain": "high_density_n50_70",
+  "master_seed": 20260921,
+  "protocol": "mijnrl_lora_target_domain_v1",
+  "splits": {
+    "adapt_train": {
+      "episodes": 1024,
+      "max_fill_rate": 0.9,
+      "mean_fill_rate": 0.8458028157552083,
+      "min_fill_rate": 0.8,
+      "path": "data\\online_crp\\lora_domains\\high_density_n50_70\\adapt_train.json",
+      "sha256": "0617f636ac3a01e9257f4277388930f5672cfe4aa17768d3b252a2ee8f148d37"
+    },
+    "test_sealed": {
+      "episodes": 500,
+      "max_fill_rate": 0.9,
+      "mean_fill_rate": 0.8469915674603175,
+      "min_fill_rate": 0.8,
+      "path": "data\\online_crp\\lora_domains\\high_density_n50_70\\test_sealed.json",
+      "sha256": "f909fa4df8b6c4ad391f2bf1ffef58c4a8d7bbe76f88eb726c1a70f112d65242"
+    },
+    "validation": {
+      "episodes": 200,
+      "max_fill_rate": 0.9,
+      "mean_fill_rate": 0.846017361111111,
+      "min_fill_rate": 0.8,
+      "path": "data\\online_crp\\lora_domains\\high_density_n50_70\\validation.json",
+      "sha256": "86911fb23b516695f5079e227aa31c185ecdbba6157be3840a6682c64ff36b0f"
+    }
+  },
+  "test_policy": "sealed; never pass test_sealed.json to adaptation or selection"
+}

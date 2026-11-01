@@ -1,0 +1,8 @@
+﻿{"timestamp":"2026-09-17T15:57:49.0700144+08:00","seeds":[20260923,20260933],"event":"queue_start","run_date":"20260917"}
+{"output":"output/moe_lora_long_20260917_seed20260923","seed":20260923,"plot_pid":162252,"event":"run_start","timestamp":"2026-09-17T15:57:49.2099118+08:00","train_pid":51668}
+{"output":"output/moe_lora_long_20260917_seed20260923","seed":20260923,"train_exit_code":null,"plot_exit_code":null,"event":"run_exit","timestamp":"2026-09-17T16:46:45.3966188+08:00"}
+{"error":"Training failed for seed 20260923 with exit code ","timestamp":"2026-09-17T16:46:45.4915952+08:00","event":"queue_failed"}
+{"timestamp":"2026-09-17T17:10:33.4117629+08:00","seeds":[20260933],"event":"queue_start","run_date":"20260917"}
+{"output":"output/moe_lora_long_20260917_seed20260933","seed":20260933,"plot_pid":164836,"event":"run_start","timestamp":"2026-09-17T17:10:33.5929952+08:00","train_pid":121852}
+{"output":"output/moe_lora_long_20260917_seed20260933","seed":20260933,"train_exit_code":null,"plot_exit_code":null,"event":"run_exit","timestamp":"2026-09-17T17:59:09.5594896+08:00"}
+{"timestamp":"2026-09-17T17:59:09.7577432+08:00","seeds":[20260933],"event":"queue_complete"}

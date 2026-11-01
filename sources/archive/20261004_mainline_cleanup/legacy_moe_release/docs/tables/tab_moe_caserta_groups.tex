@@ -1,0 +1,44 @@
+% Requires \usepackage{booktabs} and \usepackage{graphicx}.
+\begin{table}[t]
+  \centering
+  \caption{Group-wise comparison of Leveling and MoE on Caserta Table 2.}
+  \label{tab:moe_caserta_groups}
+  \setlength{\tabcolsep}{3.8pt}
+  \renewcommand{\arraystretch}{1.08}
+  \small
+  \resizebox{\linewidth}{!}{%
+  \begin{tabular}{lrrrrrrrrr}
+    \toprule
+    & & \multicolumn{2}{c}{$H=0$} & \multicolumn{2}{c}{$H=5$} & \multicolumn{2}{c}{$H=10$} & \multicolumn{2}{c}{$H=20$} \\
+    \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}
+    Group & $N$ & Leveling & MoE & Leveling & MoE & Leveling & MoE & Leveling & MoE \\
+    \midrule
+    3-3 & 9 & \textbf{0.6861} & 0.7333$\pm$0.0096 & 0.6861 & \textbf{0.5870$\pm$0.0016} & 0.6861 & \textbf{0.5639$\pm$0.0000} & 0.6861 & \textbf{0.5639$\pm$0.0000} \\
+    3-4 & 12 & \textbf{0.6188} & 0.7125$\pm$0.0220 & 0.6188 & \textbf{0.5333$\pm$0.0021} & 0.6188 & \textbf{0.5236$\pm$0.0024} & 0.6188 & \textbf{0.5188$\pm$0.0000} \\
+    3-5 & 15 & \textbf{0.5783} & 0.6872$\pm$0.0167 & 0.5783 & \textbf{0.4822$\pm$0.0010} & 0.5783 & \textbf{0.4706$\pm$0.0019} & 0.5783 & \textbf{0.4683$\pm$0.0000} \\
+    3-6 & 18 & \textbf{0.5875} & 0.6667$\pm$0.0120 & 0.5875 & \textbf{0.4889$\pm$0.0014} & 0.5875 & \textbf{0.4727$\pm$0.0008} & 0.5875 & \textbf{0.4694$\pm$0.0000} \\
+    3-7 & 21 & \textbf{0.5595} & 0.6266$\pm$0.0149 & 0.5595 & \textbf{0.4790$\pm$0.0007} & 0.5595 & \textbf{0.4508$\pm$0.0007} & 0.5595 & \textbf{0.4464$\pm$0.0012} \\
+    3-8 & 24 & \textbf{0.5427} & 0.6191$\pm$0.0223 & 0.5427 & \textbf{0.5017$\pm$0.0039} & 0.5427 & \textbf{0.4531$\pm$0.0000} & 0.5427 & \textbf{0.4458$\pm$0.0000} \\
+    4-4 & 16 & 0.8594 & \textbf{0.8589$\pm$0.0204} & 0.8594 & \textbf{0.6932$\pm$0.0024} & 0.8594 & \textbf{0.6823$\pm$0.0045} & 0.8594 & \textbf{0.6526$\pm$0.0024} \\
+    4-5 & 20 & \textbf{0.8962} & 0.9246$\pm$0.0137 & 0.8962 & \textbf{0.7004$\pm$0.0014} & 0.8962 & \textbf{0.6817$\pm$0.0007} & 0.8962 & \textbf{0.6713$\pm$0.0022} \\
+    4-6 & 24 & \textbf{0.7906} & 0.8132$\pm$0.0148 & 0.7906 & \textbf{0.6451$\pm$0.0026} & 0.7906 & \textbf{0.6108$\pm$0.0033} & 0.7906 & \textbf{0.6017$\pm$0.0022} \\
+    4-7 & 28 & \textbf{0.7991} & 0.8339$\pm$0.0047 & 0.7991 & \textbf{0.6753$\pm$0.0005} & 0.7991 & \textbf{0.6137$\pm$0.0014} & 0.7991 & \textbf{0.5914$\pm$0.0010} \\
+    5-4 & 20 & \textbf{1.0938} & 1.1008$\pm$0.0106 & 1.0938 & \textbf{0.8667$\pm$0.0019} & 1.0938 & \textbf{0.8337$\pm$0.0000} & 1.0938 & \textbf{0.8033$\pm$0.0019} \\
+    5-5 & 25 & \textbf{1.1190} & 1.1333$\pm$0.0081 & 1.1190 & \textbf{0.8693$\pm$0.0032} & 1.1190 & \textbf{0.8377$\pm$0.0015} & 1.1190 & \textbf{0.8053$\pm$0.0025} \\
+    5-6 & 30 & \textbf{1.1042} & 1.1111$\pm$0.0085 & 1.1042 & \textbf{0.8969$\pm$0.0034} & 1.1042 & \textbf{0.8242$\pm$0.0029} & 1.1042 & \textbf{0.7825$\pm$0.0000} \\
+    5-7 & 35 & \textbf{1.0721} & 1.0907$\pm$0.0050 & 1.0721 & \textbf{0.8624$\pm$0.0027} & 1.0721 & \textbf{0.7762$\pm$0.0041} & 1.0721 & \textbf{0.7307$\pm$0.0019} \\
+    5-8 & 40 & \textbf{1.0650} & 1.0919$\pm$0.0047 & 1.0650 & \textbf{0.8885$\pm$0.0061} & 1.0650 & \textbf{0.7860$\pm$0.0019} & 1.0650 & \textbf{0.7310$\pm$0.0018} \\
+    5-9 & 45 & \textbf{1.0550} & 1.0565$\pm$0.0058 & 1.0550 & \textbf{0.9035$\pm$0.0033} & 1.0550 & \textbf{0.8004$\pm$0.0013} & 1.0550 & \textbf{0.7233$\pm$0.0006} \\
+    5-10 & 50 & \textbf{1.0535} & 1.0593$\pm$0.0016 & 1.0535 & \textbf{0.9140$\pm$0.0030} & 1.0535 & \textbf{0.8018$\pm$0.0018} & 1.0535 & \textbf{0.7193$\pm$0.0006} \\
+    6-6 & 36 & \textbf{1.3528} & 1.3718$\pm$0.0208 & 1.3528 & \textbf{1.0801$\pm$0.0049} & 1.3528 & \textbf{0.9910$\pm$0.0007} & 1.3528 & \textbf{0.9431$\pm$0.0025} \\
+    6-10 & 60 & 1.3058 & \textbf{1.3043$\pm$0.0176} & 1.3058 & \textbf{1.1096$\pm$0.0076} & 1.3058 & \textbf{0.9699$\pm$0.0002} & 1.3058 & \textbf{0.8524$\pm$0.0006} \\
+    10-6 & 60 & \textbf{2.4896} & 2.5342$\pm$0.0157 & 2.4896 & \textbf{1.8844$\pm$0.0100} & 2.4896 & \textbf{1.6556$\pm$0.0013} & 2.4896 & \textbf{1.4808$\pm$0.0022} \\
+    10-10 & 100 & \textbf{2.3028} & 2.3385$\pm$0.0044 & 2.3028 & \textbf{1.8810$\pm$0.0035} & 2.3028 & \textbf{1.6598$\pm$0.0010} & 2.3028 & \textbf{1.4202$\pm$0.0003} \\
+    \midrule
+    Overall & -- & \textbf{1.0444} & 1.0794$\pm$0.0037 & 1.0444 & \textbf{0.8544$\pm$0.0009} & 1.0444 & \textbf{0.7838$\pm$0.0005} & 1.0444 & \textbf{0.7344$\pm$0.0001} \\
+    \bottomrule
+  \end{tabular}%
+  }
+  \vspace{2pt}
+  \parbox{\linewidth}{\footnotesize \textit{Notes:} Entries are mean relocations per container ($R/N$); lower is better. Each group contains 40 instances. MoE reports the mean $\pm$ sample standard deviation across three independently trained seeds. Bold indicates the lower value within each horizon. Group $S$-$W$ denotes initial height $S$ and number of stacks $W$. Leveling uses only public stack heights, so its complete action sequence is identical for $H\in\{0,5,10,20\}$; repeated values are shown for direct comparison.}
+\end{table}

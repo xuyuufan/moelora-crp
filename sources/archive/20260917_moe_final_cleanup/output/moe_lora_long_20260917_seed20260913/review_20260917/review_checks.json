@@ -1,0 +1,15 @@
+{
+  "targeted_regression_tests": {
+    "passed": 3,
+    "seconds": 8.6
+  },
+  "planned_lora_rank16_trainable_parameters": 10240,
+  "planned_command_parses": true,
+  "new_training_started": false,
+  "files_sha256": {
+    "scrp/moe_lora.py": "eddeb7677bb663294bc57af41a1d2f8afe39a837e2328fb13f04a5d84cee0d0a",
+    "scrp/scale_diverse_policy.py": "08ea29f2de82b2b7bef78c7c9fc19e48c698117966c55defb2f3b3b5185f51e5",
+    "experiments/adapt_lora.py": "9fbe6680e2b1657158302be05798871d218824297cd4ee6ddd8c1220fd696ab5",
+    "experiments/train_online_crp_scale_diverse.py": "de36abd905289a27da148b240ee871ca7703b82a974b7709c23f6ccd8afa18b7"
+  }
+}

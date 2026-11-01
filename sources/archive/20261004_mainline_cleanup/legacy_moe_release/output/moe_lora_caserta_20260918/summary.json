@@ -1,0 +1,2843 @@
+{
+  "benchmark_role": "external_public_benchmark_not_used_for_moe_selection",
+  "comparisons_vs_base": {
+    "MoE_seed20260913": {
+      "0": {
+        "candidate_minus_base_mean_relocations": -5.482142857142857,
+        "candidate_minus_base_mean_relocations_per_container": -0.17113865268329553,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -5.977380952380952,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -5.002351190476191
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 98,
+          "ties": 49,
+          "wins": 693
+        }
+      },
+      "10": {
+        "candidate_minus_base_mean_relocations": -0.30714285714285716,
+        "candidate_minus_base_mean_relocations_per_container": -0.00511583522297808,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -0.4583333333333333,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -0.1595238095238095
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 100,
+          "ties": 568,
+          "wins": 172
+        }
+      },
+      "20": {
+        "candidate_minus_base_mean_relocations": 0.041666666666666664,
+        "candidate_minus_base_mean_relocations_per_container": 0.00038955026455026457,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -0.055952380952380955,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": 0.14761904761904762
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 96,
+          "ties": 659,
+          "wins": 85
+        }
+      },
+      "5": {
+        "candidate_minus_base_mean_relocations": -1.8714285714285714,
+        "candidate_minus_base_mean_relocations_per_container": -0.037294170445956155,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -2.1964285714285716,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -1.563095238095238
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 95,
+          "ties": 359,
+          "wins": 386
+        }
+      }
+    },
+    "MoE_seed20260923": {
+      "0": {
+        "candidate_minus_base_mean_relocations": -5.244047619047619,
+        "candidate_minus_base_mean_relocations_per_container": -0.163839096749811,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -5.725029761904762,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -4.773779761904763
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 104,
+          "ties": 44,
+          "wins": 692
+        }
+      },
+      "10": {
+        "candidate_minus_base_mean_relocations": -0.27380952380952384,
+        "candidate_minus_base_mean_relocations_per_container": -0.00411290627362056,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -0.4107142857142857,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -0.14285714285714285
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 98,
+          "ties": 588,
+          "wins": 154
+        }
+      },
+      "20": {
+        "candidate_minus_base_mean_relocations": 0.04047619047619048,
+        "candidate_minus_base_mean_relocations_per_container": 0.0002839663643235072,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -0.04404761904761905,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": 0.12976190476190477
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 79,
+          "ties": 693,
+          "wins": 68
+        }
+      },
+      "5": {
+        "candidate_minus_base_mean_relocations": -1.819047619047619,
+        "candidate_minus_base_mean_relocations_per_container": -0.035606009070294785,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -2.144047619047619,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -1.5142857142857142
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 108,
+          "ties": 350,
+          "wins": 382
+        }
+      }
+    },
+    "MoE_seed20260933": {
+      "0": {
+        "candidate_minus_base_mean_relocations": -5.2404761904761905,
+        "candidate_minus_base_mean_relocations_per_container": -0.1689539871504157,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -5.725,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -4.760714285714286
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 101,
+          "ties": 54,
+          "wins": 685
+        }
+      },
+      "10": {
+        "candidate_minus_base_mean_relocations": -0.28809523809523807,
+        "candidate_minus_base_mean_relocations_per_container": -0.004359552154195011,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -0.42857142857142855,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -0.14404761904761904
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 106,
+          "ties": 563,
+          "wins": 171
+        }
+      },
+      "20": {
+        "candidate_minus_base_mean_relocations": 0.04047619047619048,
+        "candidate_minus_base_mean_relocations_per_container": 0.0005590513983371127,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -0.04880952380952381,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": 0.1357142857142857
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 87,
+          "ties": 671,
+          "wins": 82
+        }
+      },
+      "5": {
+        "candidate_minus_base_mean_relocations": -1.8357142857142856,
+        "candidate_minus_base_mean_relocations_per_container": -0.03676658163265306,
+        "paired_mean_relocation_difference_ci": {
+          "confidence": 0.95,
+          "lower": -2.1535714285714285,
+          "samples": 10000,
+          "seed": 20260918,
+          "upper": -1.5356845238095242
+        },
+        "win_tie_loss_vs_base": {
+          "losses": 102,
+          "ties": 345,
+          "wins": 393
+        }
+      }
+    }
+  },
+  "episode_count": 840,
+  "evaluation_horizons": [
+    0,
+    5,
+    10,
+    20
+  ],
+  "historical_base_totals_matched": true,
+  "horizon_definition": "H future targets plus the current target",
+  "manifest": "data\\online_crp\\caserta_table2_840.json",
+  "manifest_sha256": "c28c975c8026a59a1b7995f8afe8a41e9e48b469835b9d2227a9bbe7a5371a12",
+  "methods": {
+    "MijnRL_base": {
+      "horizons": {
+        "0": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 243.825,
+              "mean_relocations_per_container": 2.43825,
+              "total_relocations": 9753
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 155.15,
+              "mean_relocations_per_container": 2.5858333333333334,
+              "total_relocations": 6206
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 7.075,
+              "mean_relocations_per_container": 0.7861111111111112,
+              "total_relocations": 283
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 9.975,
+              "mean_relocations_per_container": 0.83125,
+              "total_relocations": 399
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 12.275,
+              "mean_relocations_per_container": 0.8183333333333334,
+              "total_relocations": 491
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 14.375,
+              "mean_relocations_per_container": 0.7986111111111112,
+              "total_relocations": 575
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 16.575,
+              "mean_relocations_per_container": 0.7892857142857143,
+              "total_relocations": 663
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 18.7,
+              "mean_relocations_per_container": 0.7791666666666667,
+              "total_relocations": 748
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 16.85,
+              "mean_relocations_per_container": 1.053125,
+              "total_relocations": 674
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 22.55,
+              "mean_relocations_per_container": 1.1275,
+              "total_relocations": 902
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 24.85,
+              "mean_relocations_per_container": 1.0354166666666667,
+              "total_relocations": 994
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 30.375,
+              "mean_relocations_per_container": 1.0848214285714286,
+              "total_relocations": 1215
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 63.275,
+              "mean_relocations_per_container": 1.2654999999999998,
+              "total_relocations": 2531
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 24.75,
+              "mean_relocations_per_container": 1.2375,
+              "total_relocations": 990
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 33.375,
+              "mean_relocations_per_container": 1.335,
+              "total_relocations": 1335
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 40.5,
+              "mean_relocations_per_container": 1.35,
+              "total_relocations": 1620
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 45.75,
+              "mean_relocations_per_container": 1.3071428571428572,
+              "total_relocations": 1830
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 51.25,
+              "mean_relocations_per_container": 1.28125,
+              "total_relocations": 2050
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 58.725,
+              "mean_relocations_per_container": 1.3050000000000002,
+              "total_relocations": 2349
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 85.5,
+              "mean_relocations_per_container": 1.425,
+              "total_relocations": 3420
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 56.225,
+              "mean_relocations_per_container": 1.5618055555555554,
+              "total_relocations": 2249
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 69.8076923076923,
+              "mean_relocations_per_container": 1.4426297313797314,
+              "total_relocations": 36300
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 15.553125,
+              "mean_relocations_per_container": 0.9302145337301587,
+              "total_relocations": 4977
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 0
+          },
+          "lookahead_horizon": 0,
+          "macro_mean_relocations": 49.13928571428571,
+          "mean_relocations": 49.13928571428571,
+          "mean_relocations_per_container": 1.247423941798942,
+          "runtime_seconds": 26.987953900010325,
+          "sample_std_relocations": 55.25397750821619,
+          "total_relocations": 41277,
+          "visible_target_count": 1
+        },
+        "10": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 167.85,
+              "mean_relocations_per_container": 1.6785,
+              "total_relocations": 6714
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 99.675,
+              "mean_relocations_per_container": 1.6612500000000001,
+              "total_relocations": 3987
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.075,
+              "mean_relocations_per_container": 0.5638888888888889,
+              "total_relocations": 203
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.3,
+              "mean_relocations_per_container": 0.525,
+              "total_relocations": 252
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.05,
+              "mean_relocations_per_container": 0.47000000000000003,
+              "total_relocations": 282
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.525,
+              "mean_relocations_per_container": 0.47361111111111115,
+              "total_relocations": 341
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 9.475,
+              "mean_relocations_per_container": 0.4511904761904762,
+              "total_relocations": 379
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 10.9,
+              "mean_relocations_per_container": 0.4541666666666667,
+              "total_relocations": 436
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 10.775,
+              "mean_relocations_per_container": 0.6734375,
+              "total_relocations": 431
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.6,
+              "mean_relocations_per_container": 0.6799999999999999,
+              "total_relocations": 544
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 14.7,
+              "mean_relocations_per_container": 0.6125,
+              "total_relocations": 588
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 17.25,
+              "mean_relocations_per_container": 0.6160714285714286,
+              "total_relocations": 690
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 41.05,
+              "mean_relocations_per_container": 0.8210000000000001,
+              "total_relocations": 1642
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 16.75,
+              "mean_relocations_per_container": 0.8375,
+              "total_relocations": 670
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 20.975,
+              "mean_relocations_per_container": 0.8390000000000001,
+              "total_relocations": 839
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 24.625,
+              "mean_relocations_per_container": 0.8208333333333334,
+              "total_relocations": 985
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 27.225,
+              "mean_relocations_per_container": 0.7778571428571428,
+              "total_relocations": 1089
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 31.575,
+              "mean_relocations_per_container": 0.7893749999999999,
+              "total_relocations": 1263
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 36.35,
+              "mean_relocations_per_container": 0.8077777777777777,
+              "total_relocations": 1454
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 60.5,
+              "mean_relocations_per_container": 1.0083333333333333,
+              "total_relocations": 2420
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 35.75,
+              "mean_relocations_per_container": 0.9930555555555556,
+              "total_relocations": 1430
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 45.26346153846154,
+              "mean_relocations_per_container": 0.9138246336996337,
+              "total_relocations": 23537
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 9.69375,
+              "mean_relocations_per_container": 0.5843284970238095,
+              "total_relocations": 3102
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 40,
+            "mean_relocations": 5.075,
+            "mean_relocations_per_container": 0.5638888888888889,
+            "total_relocations": 203
+          },
+          "lookahead_horizon": 10,
+          "macro_mean_relocations": 31.71309523809524,
+          "mean_relocations": 31.71309523809524,
+          "mean_relocations_per_container": 0.7883022959183673,
+          "runtime_seconds": 17.174231599958148,
+          "sample_std_relocations": 37.68218922681331,
+          "total_relocations": 26639,
+          "visible_target_count": 11
+        },
+        "20": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 141.35,
+              "mean_relocations_per_container": 1.4135,
+              "total_relocations": 5654
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 88.75,
+              "mean_relocations_per_container": 1.4791666666666665,
+              "total_relocations": 3550
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.075,
+              "mean_relocations_per_container": 0.5638888888888889,
+              "total_relocations": 203
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.225,
+              "mean_relocations_per_container": 0.51875,
+              "total_relocations": 249
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.025,
+              "mean_relocations_per_container": 0.4683333333333334,
+              "total_relocations": 281
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.45,
+              "mean_relocations_per_container": 0.46944444444444444,
+              "total_relocations": 338
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 9.375,
+              "mean_relocations_per_container": 0.44642857142857145,
+              "total_relocations": 375
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 10.675,
+              "mean_relocations_per_container": 0.4447916666666667,
+              "total_relocations": 427
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 10.5,
+              "mean_relocations_per_container": 0.65625,
+              "total_relocations": 420
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.35,
+              "mean_relocations_per_container": 0.6675,
+              "total_relocations": 534
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 14.425,
+              "mean_relocations_per_container": 0.6010416666666667,
+              "total_relocations": 577
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 16.5,
+              "mean_relocations_per_container": 0.5892857142857142,
+              "total_relocations": 660
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 36.025,
+              "mean_relocations_per_container": 0.7205,
+              "total_relocations": 1441
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 16.075,
+              "mean_relocations_per_container": 0.80375,
+              "total_relocations": 643
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 20.275,
+              "mean_relocations_per_container": 0.8109999999999999,
+              "total_relocations": 811
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 23.55,
+              "mean_relocations_per_container": 0.785,
+              "total_relocations": 942
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 25.475,
+              "mean_relocations_per_container": 0.7278571428571429,
+              "total_relocations": 1019
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 29.25,
+              "mean_relocations_per_container": 0.73125,
+              "total_relocations": 1170
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 32.475,
+              "mean_relocations_per_container": 0.7216666666666667,
+              "total_relocations": 1299
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 51.075,
+              "mean_relocations_per_container": 0.85125,
+              "total_relocations": 2043
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 33.925,
+              "mean_relocations_per_container": 0.9423611111111111,
+              "total_relocations": 1357
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 40.28846153846154,
+              "mean_relocations_per_container": 0.8322054334554334,
+              "total_relocations": 20950
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 9.509375,
+              "mean_relocations_per_container": 0.5742931547619048,
+              "total_relocations": 3043
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 320,
+            "mean_relocations": 9.509375,
+            "mean_relocations_per_container": 0.5742931547619048,
+            "total_relocations": 3043
+          },
+          "lookahead_horizon": 20,
+          "macro_mean_relocations": 28.56309523809524,
+          "mean_relocations": 28.563095238095237,
+          "mean_relocations_per_container": 0.7339531368102797,
+          "runtime_seconds": 14.673805700032972,
+          "sample_std_relocations": 31.732993924301233,
+          "total_relocations": 23993,
+          "visible_target_count": 21
+        },
+        "5": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 200.125,
+              "mean_relocations_per_container": 2.0012499999999998,
+              "total_relocations": 8005
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 115.75,
+              "mean_relocations_per_container": 1.9291666666666667,
+              "total_relocations": 4630
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.3,
+              "mean_relocations_per_container": 0.5888888888888888,
+              "total_relocations": 212
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.45,
+              "mean_relocations_per_container": 0.5375,
+              "total_relocations": 258
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.275,
+              "mean_relocations_per_container": 0.485,
+              "total_relocations": 291
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 9.025,
+              "mean_relocations_per_container": 0.5013888888888889,
+              "total_relocations": 361
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 10.55,
+              "mean_relocations_per_container": 0.5023809523809524,
+              "total_relocations": 422
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 13.1,
+              "mean_relocations_per_container": 0.5458333333333333,
+              "total_relocations": 524
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 11.075,
+              "mean_relocations_per_container": 0.6921875,
+              "total_relocations": 443
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 14.3,
+              "mean_relocations_per_container": 0.7150000000000001,
+              "total_relocations": 572
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 16.275,
+              "mean_relocations_per_container": 0.678125,
+              "total_relocations": 651
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 20.1,
+              "mean_relocations_per_container": 0.7178571428571429,
+              "total_relocations": 804
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 50.7,
+              "mean_relocations_per_container": 1.014,
+              "total_relocations": 2028
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 17.4,
+              "mean_relocations_per_container": 0.8699999999999999,
+              "total_relocations": 696
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 21.525,
+              "mean_relocations_per_container": 0.861,
+              "total_relocations": 861
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 27.4,
+              "mean_relocations_per_container": 0.9133333333333333,
+              "total_relocations": 1096
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 31.625,
+              "mean_relocations_per_container": 0.9035714285714287,
+              "total_relocations": 1265
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 38.225,
+              "mean_relocations_per_container": 0.9556250000000001,
+              "total_relocations": 1529
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 45.225,
+              "mean_relocations_per_container": 1.0050000000000001,
+              "total_relocations": 1809
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 71.725,
+              "mean_relocations_per_container": 1.1954166666666666,
+              "total_relocations": 2869
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 39.525,
+              "mean_relocations_per_container": 1.0979166666666667,
+              "total_relocations": 1581
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 53.176923076923075,
+              "mean_relocations_per_container": 1.062930402930403,
+              "total_relocations": 27652
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 10.171875,
+              "mean_relocations_per_container": 0.6115432787698413,
+              "total_relocations": 3255
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 0
+          },
+          "lookahead_horizon": 5,
+          "macro_mean_relocations": 36.79404761904762,
+          "mean_relocations": 36.79404761904762,
+          "mean_relocations_per_container": 0.8909734032501889,
+          "runtime_seconds": 20.129929099988658,
+          "sample_std_relocations": 45.072916295252895,
+          "total_relocations": 30907,
+          "visible_target_count": 6
+        }
+      },
+      "provenance": {
+        "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+        "inference": "greedy_fp32",
+        "parameter_counts": {
+          "total_parameters": 1105842,
+          "trainable_parameter_fraction": 0.0,
+          "trainable_parameters": 0
+        },
+        "training_lookahead_horizon": 20
+      }
+    },
+    "MoE_seed20260913": {
+      "horizons": {
+        "0": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 234.2,
+              "mean_relocations_per_container": 2.3419999999999996,
+              "total_relocations": 9368
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 151.15,
+              "mean_relocations_per_container": 2.5191666666666666,
+              "total_relocations": 6046
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 6.65,
+              "mean_relocations_per_container": 0.7388888888888889,
+              "total_relocations": 266
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 8.85,
+              "mean_relocations_per_container": 0.7375,
+              "total_relocations": 354
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 10.325,
+              "mean_relocations_per_container": 0.6883333333333332,
+              "total_relocations": 413
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 12.125,
+              "mean_relocations_per_container": 0.673611111111111,
+              "total_relocations": 485
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 13.375,
+              "mean_relocations_per_container": 0.6369047619047619,
+              "total_relocations": 535
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 14.975,
+              "mean_relocations_per_container": 0.6239583333333333,
+              "total_relocations": 599
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 13.375,
+              "mean_relocations_per_container": 0.8359375,
+              "total_relocations": 535
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 18.175,
+              "mean_relocations_per_container": 0.9087500000000001,
+              "total_relocations": 727
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 19.2,
+              "mean_relocations_per_container": 0.8,
+              "total_relocations": 768
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 23.25,
+              "mean_relocations_per_container": 0.8303571428571429,
+              "total_relocations": 930
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 52.875,
+              "mean_relocations_per_container": 1.0574999999999999,
+              "total_relocations": 2115
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 22.225,
+              "mean_relocations_per_container": 1.1112499999999998,
+              "total_relocations": 889
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 28.3,
+              "mean_relocations_per_container": 1.1320000000000001,
+              "total_relocations": 1132
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 33.225,
+              "mean_relocations_per_container": 1.1075,
+              "total_relocations": 1329
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 37.975,
+              "mean_relocations_per_container": 1.085,
+              "total_relocations": 1519
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 43.5,
+              "mean_relocations_per_container": 1.0875,
+              "total_relocations": 1740
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 47.25,
+              "mean_relocations_per_container": 1.05,
+              "total_relocations": 1890
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 77.275,
+              "mean_relocations_per_container": 1.2879166666666666,
+              "total_relocations": 3091
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 48.525,
+              "mean_relocations_per_container": 1.3479166666666667,
+              "total_relocations": 1941
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 62.43846153846154,
+              "mean_relocations_per_container": 1.2516011904761903,
+              "total_relocations": 32468
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 13.1375,
+              "mean_relocations_per_container": 0.7913969494047619,
+              "total_relocations": 4204
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 0
+          },
+          "lookahead_horizon": 0,
+          "macro_mean_relocations": 43.65714285714286,
+          "mean_relocations": 43.65714285714286,
+          "mean_relocations_per_container": 1.0762852891156462,
+          "runtime_seconds": 22.95949809998274,
+          "sample_std_relocations": 53.57468645522579,
+          "total_relocations": 36672,
+          "visible_target_count": 1
+        },
+        "10": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 165.975,
+              "mean_relocations_per_container": 1.65975,
+              "total_relocations": 6639
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 99.4,
+              "mean_relocations_per_container": 1.6566666666666667,
+              "total_relocations": 3976
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.075,
+              "mean_relocations_per_container": 0.5638888888888889,
+              "total_relocations": 203
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.3,
+              "mean_relocations_per_container": 0.525,
+              "total_relocations": 252
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.025,
+              "mean_relocations_per_container": 0.4683333333333334,
+              "total_relocations": 281
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.525,
+              "mean_relocations_per_container": 0.47361111111111115,
+              "total_relocations": 341
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 9.475,
+              "mean_relocations_per_container": 0.4511904761904762,
+              "total_relocations": 379
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 10.875,
+              "mean_relocations_per_container": 0.453125,
+              "total_relocations": 435
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 10.875,
+              "mean_relocations_per_container": 0.6796875,
+              "total_relocations": 435
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.625,
+              "mean_relocations_per_container": 0.68125,
+              "total_relocations": 545
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 14.625,
+              "mean_relocations_per_container": 0.609375,
+              "total_relocations": 585
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 17.225,
+              "mean_relocations_per_container": 0.6151785714285715,
+              "total_relocations": 689
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 40.0,
+              "mean_relocations_per_container": 0.8,
+              "total_relocations": 1600
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 16.675,
+              "mean_relocations_per_container": 0.83375,
+              "total_relocations": 667
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 20.9,
+              "mean_relocations_per_container": 0.836,
+              "total_relocations": 836
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 24.675,
+              "mean_relocations_per_container": 0.8225,
+              "total_relocations": 987
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 27.0,
+              "mean_relocations_per_container": 0.7714285714285715,
+              "total_relocations": 1080
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 31.425,
+              "mean_relocations_per_container": 0.785625,
+              "total_relocations": 1257
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 35.95,
+              "mean_relocations_per_container": 0.7988888888888889,
+              "total_relocations": 1438
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 58.2,
+              "mean_relocations_per_container": 0.97,
+              "total_relocations": 2328
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 35.7,
+              "mean_relocations_per_container": 0.9916666666666666,
+              "total_relocations": 1428
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 44.76538461538462,
+              "mean_relocations_per_container": 0.9054003357753359,
+              "total_relocations": 23278
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 9.696875,
+              "mean_relocations_per_container": 0.5845889136904762,
+              "total_relocations": 3103
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 40,
+            "mean_relocations": 5.075,
+            "mean_relocations_per_container": 0.5638888888888889,
+            "total_relocations": 203
+          },
+          "lookahead_horizon": 10,
+          "macro_mean_relocations": 31.405952380952378,
+          "mean_relocations": 31.40595238095238,
+          "mean_relocations_per_container": 0.7831864606953893,
+          "runtime_seconds": 16.83760580001399,
+          "sample_std_relocations": 37.24106583852224,
+          "total_relocations": 26381,
+          "visible_target_count": 11
+        },
+        "20": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 142.0,
+              "mean_relocations_per_container": 1.42,
+              "total_relocations": 5680
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 88.9,
+              "mean_relocations_per_container": 1.4816666666666667,
+              "total_relocations": 3556
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.075,
+              "mean_relocations_per_container": 0.5638888888888889,
+              "total_relocations": 203
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.225,
+              "mean_relocations_per_container": 0.51875,
+              "total_relocations": 249
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.025,
+              "mean_relocations_per_container": 0.4683333333333334,
+              "total_relocations": 281
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.45,
+              "mean_relocations_per_container": 0.46944444444444444,
+              "total_relocations": 338
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 9.4,
+              "mean_relocations_per_container": 0.44761904761904764,
+              "total_relocations": 376
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 10.7,
+              "mean_relocations_per_container": 0.4458333333333333,
+              "total_relocations": 428
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 10.4,
+              "mean_relocations_per_container": 0.65,
+              "total_relocations": 416
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.45,
+              "mean_relocations_per_container": 0.6725,
+              "total_relocations": 538
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 14.5,
+              "mean_relocations_per_container": 0.6041666666666667,
+              "total_relocations": 580
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 16.575,
+              "mean_relocations_per_container": 0.5919642857142857,
+              "total_relocations": 663
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 35.95,
+              "mean_relocations_per_container": 0.719,
+              "total_relocations": 1438
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 16.075,
+              "mean_relocations_per_container": 0.80375,
+              "total_relocations": 643
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 20.075,
+              "mean_relocations_per_container": 0.8029999999999999,
+              "total_relocations": 803
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 23.475,
+              "mean_relocations_per_container": 0.7825,
+              "total_relocations": 939
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 25.5,
+              "mean_relocations_per_container": 0.7285714285714285,
+              "total_relocations": 1020
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 29.325,
+              "mean_relocations_per_container": 0.733125,
+              "total_relocations": 1173
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 32.575,
+              "mean_relocations_per_container": 0.7238888888888889,
+              "total_relocations": 1303
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 51.175,
+              "mean_relocations_per_container": 0.8529166666666667,
+              "total_relocations": 2047
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 33.85,
+              "mean_relocations_per_container": 0.9402777777777779,
+              "total_relocations": 1354
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 40.353846153846156,
+              "mean_relocations_per_container": 0.8328392857142857,
+              "total_relocations": 20984
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 9.5125,
+              "mean_relocations_per_container": 0.5742857142857143,
+              "total_relocations": 3044
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 320,
+            "mean_relocations": 9.5125,
+            "mean_relocations_per_container": 0.5742857142857143,
+            "total_relocations": 3044
+          },
+          "lookahead_horizon": 20,
+          "macro_mean_relocations": 28.604761904761908,
+          "mean_relocations": 28.604761904761904,
+          "mean_relocations_per_container": 0.73434268707483,
+          "runtime_seconds": 16.710401799995452,
+          "sample_std_relocations": 31.892339397099153,
+          "total_relocations": 24028,
+          "visible_target_count": 21
+        },
+        "5": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 188.05,
+              "mean_relocations_per_container": 1.8805,
+              "total_relocations": 7522
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 113.475,
+              "mean_relocations_per_container": 1.89125,
+              "total_relocations": 4539
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.275,
+              "mean_relocations_per_container": 0.586111111111111,
+              "total_relocations": 211
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.4,
+              "mean_relocations_per_container": 0.5333333333333333,
+              "total_relocations": 256
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.225,
+              "mean_relocations_per_container": 0.48166666666666663,
+              "total_relocations": 289
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.8,
+              "mean_relocations_per_container": 0.48888888888888893,
+              "total_relocations": 352
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 10.075,
+              "mean_relocations_per_container": 0.4797619047619047,
+              "total_relocations": 403
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 11.975,
+              "mean_relocations_per_container": 0.4989583333333333,
+              "total_relocations": 479
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 11.05,
+              "mean_relocations_per_container": 0.690625,
+              "total_relocations": 442
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 14.025,
+              "mean_relocations_per_container": 0.70125,
+              "total_relocations": 561
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 15.55,
+              "mean_relocations_per_container": 0.6479166666666667,
+              "total_relocations": 622
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 18.9,
+              "mean_relocations_per_container": 0.675,
+              "total_relocations": 756
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 45.525,
+              "mean_relocations_per_container": 0.9105000000000001,
+              "total_relocations": 1821
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 17.325,
+              "mean_relocations_per_container": 0.86625,
+              "total_relocations": 693
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 21.7,
+              "mean_relocations_per_container": 0.868,
+              "total_relocations": 868
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 26.8,
+              "mean_relocations_per_container": 0.8933333333333333,
+              "total_relocations": 1072
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 30.225,
+              "mean_relocations_per_container": 0.8635714285714287,
+              "total_relocations": 1209
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 35.275,
+              "mean_relocations_per_container": 0.881875,
+              "total_relocations": 1411
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 40.6,
+              "mean_relocations_per_container": 0.9022222222222223,
+              "total_relocations": 1624
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 66.05,
+              "mean_relocations_per_container": 1.1008333333333333,
+              "total_relocations": 2642
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 39.075,
+              "mean_relocations_per_container": 1.0854166666666667,
+              "total_relocations": 1563
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 50.246153846153845,
+              "mean_relocations_per_container": 1.0076443833943836,
+              "total_relocations": 26128
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 10.021875,
+              "mean_relocations_per_container": 0.6034858630952381,
+              "total_relocations": 3207
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 0
+          },
+          "lookahead_horizon": 5,
+          "macro_mean_relocations": 34.92261904761905,
+          "mean_relocations": 34.92261904761905,
+          "mean_relocations_per_container": 0.8536792328042327,
+          "runtime_seconds": 18.52921810001135,
+          "sample_std_relocations": 42.56280461151739,
+          "total_relocations": 29335,
+          "visible_target_count": 6
+        }
+      },
+      "provenance": {
+        "adapter_checkpoint": "output\\moe_lora_long_20260917_seed20260913\\best.adapter.pt",
+        "adapter_sha256": "a4c83c37cd20b8867ce679aace0087a2833f7d998d297a90d2d2b894128ce47b",
+        "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+        "inference": "greedy_fp32",
+        "moe_lora_config": {
+          "alpha": 16.0,
+          "bias": true,
+          "dropout": 0.0,
+          "in_features": 512,
+          "num_experts": 2,
+          "out_features": 128,
+          "rank": 8,
+          "routing": "dense_per_stack_input_softmax",
+          "target_module": "stack_projection.2",
+          "temperature": 1.0
+        },
+        "parameter_counts": {
+          "total_parameters": 1117108,
+          "trainable_parameter_fraction": 0.010084969403137387,
+          "trainable_parameters": 11266
+        },
+        "seed": 20260913,
+        "selected_epoch": 2,
+        "training_lookahead_horizon": 20
+      }
+    },
+    "MoE_seed20260923": {
+      "horizons": {
+        "0": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 233.35,
+              "mean_relocations_per_container": 2.3335,
+              "total_relocations": 9334
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 151.975,
+              "mean_relocations_per_container": 2.5329166666666665,
+              "total_relocations": 6079
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 6.65,
+              "mean_relocations_per_container": 0.7388888888888889,
+              "total_relocations": 266
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 8.45,
+              "mean_relocations_per_container": 0.7041666666666667,
+              "total_relocations": 338
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 10.55,
+              "mean_relocations_per_container": 0.7033333333333334,
+              "total_relocations": 422
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 12.125,
+              "mean_relocations_per_container": 0.673611111111111,
+              "total_relocations": 485
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 13.3,
+              "mean_relocations_per_container": 0.6333333333333333,
+              "total_relocations": 532
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 15.325,
+              "mean_relocations_per_container": 0.6385416666666667,
+              "total_relocations": 613
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 13.85,
+              "mean_relocations_per_container": 0.865625,
+              "total_relocations": 554
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 18.65,
+              "mean_relocations_per_container": 0.9324999999999999,
+              "total_relocations": 746
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 19.9,
+              "mean_relocations_per_container": 0.8291666666666666,
+              "total_relocations": 796
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 23.5,
+              "mean_relocations_per_container": 0.8392857142857142,
+              "total_relocations": 940
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 53.0,
+              "mean_relocations_per_container": 1.06,
+              "total_relocations": 2120
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 21.8,
+              "mean_relocations_per_container": 1.09,
+              "total_relocations": 872
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 28.55,
+              "mean_relocations_per_container": 1.142,
+              "total_relocations": 1142
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 33.15,
+              "mean_relocations_per_container": 1.105,
+              "total_relocations": 1326
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 38.25,
+              "mean_relocations_per_container": 1.092857142857143,
+              "total_relocations": 1530
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 43.65,
+              "mean_relocations_per_container": 1.09125,
+              "total_relocations": 1746
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 47.75,
+              "mean_relocations_per_container": 1.0611111111111111,
+              "total_relocations": 1910
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 78.125,
+              "mean_relocations_per_container": 1.3020833333333335,
+              "total_relocations": 3125
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 49.9,
+              "mean_relocations_per_container": 1.386111111111111,
+              "total_relocations": 1996
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 62.801923076923075,
+              "mean_relocations_per_container": 1.262601800976801,
+              "total_relocations": 32657
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 13.171875,
+              "mean_relocations_per_container": 0.7926822916666667,
+              "total_relocations": 4215
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 0
+          },
+          "lookahead_horizon": 0,
+          "macro_mean_relocations": 43.89523809523809,
+          "mean_relocations": 43.89523809523809,
+          "mean_relocations_per_container": 1.0835848450491308,
+          "runtime_seconds": 35.426092399982736,
+          "sample_std_relocations": 53.51990240517385,
+          "total_relocations": 36872,
+          "visible_target_count": 1
+        },
+        "10": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 166.075,
+              "mean_relocations_per_container": 1.6607500000000002,
+              "total_relocations": 6643
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 99.35,
+              "mean_relocations_per_container": 1.6558333333333333,
+              "total_relocations": 3974
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.075,
+              "mean_relocations_per_container": 0.5638888888888889,
+              "total_relocations": 203
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.3,
+              "mean_relocations_per_container": 0.525,
+              "total_relocations": 252
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.075,
+              "mean_relocations_per_container": 0.4716666666666667,
+              "total_relocations": 283
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.5,
+              "mean_relocations_per_container": 0.4722222222222222,
+              "total_relocations": 340
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 9.475,
+              "mean_relocations_per_container": 0.4511904761904762,
+              "total_relocations": 379
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 10.875,
+              "mean_relocations_per_container": 0.453125,
+              "total_relocations": 435
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 10.875,
+              "mean_relocations_per_container": 0.6796875,
+              "total_relocations": 435
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.625,
+              "mean_relocations_per_container": 0.68125,
+              "total_relocations": 545
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 14.75,
+              "mean_relocations_per_container": 0.6145833333333333,
+              "total_relocations": 590
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 17.15,
+              "mean_relocations_per_container": 0.6125,
+              "total_relocations": 686
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 40.1,
+              "mean_relocations_per_container": 0.8019999999999999,
+              "total_relocations": 1604
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 16.675,
+              "mean_relocations_per_container": 0.83375,
+              "total_relocations": 667
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 20.95,
+              "mean_relocations_per_container": 0.8380000000000001,
+              "total_relocations": 838
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 24.825,
+              "mean_relocations_per_container": 0.8275,
+              "total_relocations": 993
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 27.25,
+              "mean_relocations_per_container": 0.7785714285714286,
+              "total_relocations": 1090
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 31.375,
+              "mean_relocations_per_container": 0.784375,
+              "total_relocations": 1255
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 36.05,
+              "mean_relocations_per_container": 0.8011111111111111,
+              "total_relocations": 1442
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 58.2,
+              "mean_relocations_per_container": 0.97,
+              "total_relocations": 2328
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 35.675,
+              "mean_relocations_per_container": 0.9909722222222221,
+              "total_relocations": 1427
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 44.81730769230769,
+              "mean_relocations_per_container": 0.906870879120879,
+              "total_relocations": 23305
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 9.7,
+              "mean_relocations_per_container": 0.5848319692460318,
+              "total_relocations": 3104
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 40,
+            "mean_relocations": 5.075,
+            "mean_relocations_per_container": 0.5638888888888889,
+            "total_relocations": 203
+          },
+          "lookahead_horizon": 10,
+          "macro_mean_relocations": 31.439285714285717,
+          "mean_relocations": 31.439285714285713,
+          "mean_relocations_per_container": 0.7841893896447467,
+          "runtime_seconds": 22.48942190001253,
+          "sample_std_relocations": 37.2487835443266,
+          "total_relocations": 26409,
+          "visible_target_count": 11
+        },
+        "20": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 142.05,
+              "mean_relocations_per_container": 1.4205,
+              "total_relocations": 5682
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 88.95,
+              "mean_relocations_per_container": 1.4825,
+              "total_relocations": 3558
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.075,
+              "mean_relocations_per_container": 0.5638888888888889,
+              "total_relocations": 203
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.225,
+              "mean_relocations_per_container": 0.51875,
+              "total_relocations": 249
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.025,
+              "mean_relocations_per_container": 0.4683333333333334,
+              "total_relocations": 281
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.45,
+              "mean_relocations_per_container": 0.46944444444444444,
+              "total_relocations": 338
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 9.375,
+              "mean_relocations_per_container": 0.44642857142857145,
+              "total_relocations": 375
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 10.7,
+              "mean_relocations_per_container": 0.4458333333333333,
+              "total_relocations": 428
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 10.475,
+              "mean_relocations_per_container": 0.6546875,
+              "total_relocations": 419
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.375,
+              "mean_relocations_per_container": 0.66875,
+              "total_relocations": 535
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 14.425,
+              "mean_relocations_per_container": 0.6010416666666667,
+              "total_relocations": 577
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 16.525,
+              "mean_relocations_per_container": 0.5901785714285714,
+              "total_relocations": 661
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 35.95,
+              "mean_relocations_per_container": 0.7190000000000001,
+              "total_relocations": 1438
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 16.025,
+              "mean_relocations_per_container": 0.8012499999999999,
+              "total_relocations": 641
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 20.125,
+              "mean_relocations_per_container": 0.805,
+              "total_relocations": 805
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 23.475,
+              "mean_relocations_per_container": 0.7825,
+              "total_relocations": 939
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 25.625,
+              "mean_relocations_per_container": 0.7321428571428571,
+              "total_relocations": 1025
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 29.2,
+              "mean_relocations_per_container": 0.73,
+              "total_relocations": 1168
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 32.55,
+              "mean_relocations_per_container": 0.7233333333333334,
+              "total_relocations": 1302
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 51.1,
+              "mean_relocations_per_container": 0.8516666666666668,
+              "total_relocations": 2044
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 33.975,
+              "mean_relocations_per_container": 0.94375,
+              "total_relocations": 1359
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 40.35769230769231,
+              "mean_relocations_per_container": 0.8328804945054945,
+              "total_relocations": 20986
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 9.503125,
+              "mean_relocations_per_container": 0.5739415922619048,
+              "total_relocations": 3041
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 320,
+            "mean_relocations": 9.503125,
+            "mean_relocations_per_container": 0.5739415922619048,
+            "total_relocations": 3041
+          },
+          "lookahead_horizon": 20,
+          "macro_mean_relocations": 28.60357142857143,
+          "mean_relocations": 28.603571428571428,
+          "mean_relocations_per_container": 0.7342371031746032,
+          "runtime_seconds": 19.09333530004369,
+          "sample_std_relocations": 31.884344581985406,
+          "total_relocations": 24027,
+          "visible_target_count": 21
+        },
+        "5": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 187.775,
+              "mean_relocations_per_container": 1.87775,
+              "total_relocations": 7511
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 113.35,
+              "mean_relocations_per_container": 1.8891666666666667,
+              "total_relocations": 4534
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.3,
+              "mean_relocations_per_container": 0.5888888888888888,
+              "total_relocations": 212
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.425,
+              "mean_relocations_per_container": 0.5354166666666667,
+              "total_relocations": 257
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.25,
+              "mean_relocations_per_container": 0.4833333333333333,
+              "total_relocations": 290
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.825,
+              "mean_relocations_per_container": 0.49027777777777776,
+              "total_relocations": 353
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 10.05,
+              "mean_relocations_per_container": 0.47857142857142854,
+              "total_relocations": 402
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 12.15,
+              "mean_relocations_per_container": 0.50625,
+              "total_relocations": 486
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 11.125,
+              "mean_relocations_per_container": 0.6953125,
+              "total_relocations": 445
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 14.025,
+              "mean_relocations_per_container": 0.70125,
+              "total_relocations": 561
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 15.475,
+              "mean_relocations_per_container": 0.6447916666666667,
+              "total_relocations": 619
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 18.925,
+              "mean_relocations_per_container": 0.6758928571428571,
+              "total_relocations": 757
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 45.775,
+              "mean_relocations_per_container": 0.9155,
+              "total_relocations": 1831
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 17.375,
+              "mean_relocations_per_container": 0.86875,
+              "total_relocations": 695
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 21.675,
+              "mean_relocations_per_container": 0.867,
+              "total_relocations": 867
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 26.925,
+              "mean_relocations_per_container": 0.8975,
+              "total_relocations": 1077
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 30.075,
+              "mean_relocations_per_container": 0.8592857142857143,
+              "total_relocations": 1203
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 35.75,
+              "mean_relocations_per_container": 0.89375,
+              "total_relocations": 1430
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 40.55,
+              "mean_relocations_per_container": 0.9011111111111111,
+              "total_relocations": 1622
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 66.825,
+              "mean_relocations_per_container": 1.11375,
+              "total_relocations": 2673
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 38.85,
+              "mean_relocations_per_container": 1.0791666666666666,
+              "total_relocations": 1554
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 50.315384615384616,
+              "mean_relocations_per_container": 1.0093011294261294,
+              "total_relocations": 26164
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 10.046875,
+              "mean_relocations_per_container": 0.6052250744047619,
+              "total_relocations": 3215
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 0
+          },
+          "lookahead_horizon": 5,
+          "macro_mean_relocations": 34.975,
+          "mean_relocations": 34.975,
+          "mean_relocations_per_container": 0.8553673941798942,
+          "runtime_seconds": 26.97197650000453,
+          "sample_std_relocations": 42.5238974389331,
+          "total_relocations": 29379,
+          "visible_target_count": 6
+        }
+      },
+      "provenance": {
+        "adapter_checkpoint": "output\\moe_lora_long_20260917_seed20260923\\best.adapter.pt",
+        "adapter_sha256": "63d0b77a0a4e5c79ba65c508d985e81cc41be80928eb4bd3b429c5f705496c0a",
+        "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+        "inference": "greedy_fp32",
+        "moe_lora_config": {
+          "alpha": 16.0,
+          "bias": true,
+          "dropout": 0.0,
+          "in_features": 512,
+          "num_experts": 2,
+          "out_features": 128,
+          "rank": 8,
+          "routing": "dense_per_stack_input_softmax",
+          "target_module": "stack_projection.2",
+          "temperature": 1.0
+        },
+        "parameter_counts": {
+          "total_parameters": 1117108,
+          "trainable_parameter_fraction": 0.010084969403137387,
+          "trainable_parameters": 11266
+        },
+        "seed": 20260923,
+        "selected_epoch": 2,
+        "training_lookahead_horizon": 20
+      }
+    },
+    "MoE_seed20260933": {
+      "horizons": {
+        "0": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 234.0,
+              "mean_relocations_per_container": 2.34,
+              "total_relocations": 9360
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 153.025,
+              "mean_relocations_per_container": 2.5504166666666666,
+              "total_relocations": 6121
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 6.5,
+              "mean_relocations_per_container": 0.7222222222222222,
+              "total_relocations": 260
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 8.35,
+              "mean_relocations_per_container": 0.6958333333333333,
+              "total_relocations": 334
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 10.05,
+              "mean_relocations_per_container": 0.67,
+              "total_relocations": 402
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 11.75,
+              "mean_relocations_per_container": 0.6527777777777778,
+              "total_relocations": 470
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 12.8,
+              "mean_relocations_per_container": 0.6095238095238095,
+              "total_relocations": 512
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 14.275,
+              "mean_relocations_per_container": 0.5947916666666667,
+              "total_relocations": 571
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 14.0,
+              "mean_relocations_per_container": 0.875,
+              "total_relocations": 560
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 18.65,
+              "mean_relocations_per_container": 0.9324999999999999,
+              "total_relocations": 746
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 19.45,
+              "mean_relocations_per_container": 0.8104166666666666,
+              "total_relocations": 778
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 23.3,
+              "mean_relocations_per_container": 0.8321428571428571,
+              "total_relocations": 932
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 53.025,
+              "mean_relocations_per_container": 1.0605,
+              "total_relocations": 2121
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 22.025,
+              "mean_relocations_per_container": 1.1012499999999998,
+              "total_relocations": 881
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 28.15,
+              "mean_relocations_per_container": 1.126,
+              "total_relocations": 1126
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 33.625,
+              "mean_relocations_per_container": 1.1208333333333333,
+              "total_relocations": 1345
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 38.3,
+              "mean_relocations_per_container": 1.0942857142857143,
+              "total_relocations": 1532
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 43.875,
+              "mean_relocations_per_container": 1.096875,
+              "total_relocations": 1755
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 47.625,
+              "mean_relocations_per_container": 1.0583333333333333,
+              "total_relocations": 1905
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 79.375,
+              "mean_relocations_per_container": 1.3229166666666665,
+              "total_relocations": 3175
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 49.725,
+              "mean_relocations_per_container": 1.38125,
+              "total_relocations": 1989
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 62.90384615384615,
+              "mean_relocations_per_container": 1.2606739926739927,
+              "total_relocations": 32710
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 13.015625,
+              "mean_relocations_per_container": 0.7823883928571428,
+              "total_relocations": 4165
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 0
+          },
+          "lookahead_horizon": 0,
+          "macro_mean_relocations": 43.898809523809526,
+          "mean_relocations": 43.898809523809526,
+          "mean_relocations_per_container": 1.0784699546485261,
+          "runtime_seconds": 32.02746979997028,
+          "sample_std_relocations": 53.89596652035031,
+          "total_relocations": 36875,
+          "visible_target_count": 1
+        },
+        "10": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 165.875,
+              "mean_relocations_per_container": 1.65875,
+              "total_relocations": 6635
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 99.25,
+              "mean_relocations_per_container": 1.6541666666666668,
+              "total_relocations": 3970
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.075,
+              "mean_relocations_per_container": 0.5638888888888889,
+              "total_relocations": 203
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.25,
+              "mean_relocations_per_container": 0.5208333333333333,
+              "total_relocations": 250
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.075,
+              "mean_relocations_per_container": 0.4716666666666667,
+              "total_relocations": 283
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.5,
+              "mean_relocations_per_container": 0.4722222222222222,
+              "total_relocations": 340
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 9.45,
+              "mean_relocations_per_container": 0.45,
+              "total_relocations": 378
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 10.875,
+              "mean_relocations_per_container": 0.453125,
+              "total_relocations": 435
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 11.0,
+              "mean_relocations_per_container": 0.6875,
+              "total_relocations": 440
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.65,
+              "mean_relocations_per_container": 0.6825,
+              "total_relocations": 546
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 14.6,
+              "mean_relocations_per_container": 0.6083333333333333,
+              "total_relocations": 584
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 17.175,
+              "mean_relocations_per_container": 0.6133928571428571,
+              "total_relocations": 687
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 40.175,
+              "mean_relocations_per_container": 0.8035,
+              "total_relocations": 1607
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 16.675,
+              "mean_relocations_per_container": 0.83375,
+              "total_relocations": 667
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 20.975,
+              "mean_relocations_per_container": 0.8390000000000001,
+              "total_relocations": 839
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 24.675,
+              "mean_relocations_per_container": 0.8225,
+              "total_relocations": 987
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 27.25,
+              "mean_relocations_per_container": 0.7785714285714286,
+              "total_relocations": 1090
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 31.525,
+              "mean_relocations_per_container": 0.788125,
+              "total_relocations": 1261
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 36.05,
+              "mean_relocations_per_container": 0.8011111111111111,
+              "total_relocations": 1442
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 58.175,
+              "mean_relocations_per_container": 0.9695833333333332,
+              "total_relocations": 2327
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 35.65,
+              "mean_relocations_per_container": 0.9902777777777778,
+              "total_relocations": 1426
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 44.78846153846154,
+              "mean_relocations_per_container": 0.9061874236874238,
+              "total_relocations": 23290
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 9.709375,
+              "mean_relocations_per_container": 0.585295138888889,
+              "total_relocations": 3107
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 40,
+            "mean_relocations": 5.075,
+            "mean_relocations_per_container": 0.5638888888888889,
+            "total_relocations": 203
+          },
+          "lookahead_horizon": 10,
+          "macro_mean_relocations": 31.424999999999997,
+          "mean_relocations": 31.425,
+          "mean_relocations_per_container": 0.7839427437641724,
+          "runtime_seconds": 22.319347399985418,
+          "sample_std_relocations": 37.220396240571176,
+          "total_relocations": 26397,
+          "visible_target_count": 11
+        },
+        "20": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 142.0,
+              "mean_relocations_per_container": 1.42,
+              "total_relocations": 5680
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 88.7,
+              "mean_relocations_per_container": 1.4783333333333333,
+              "total_relocations": 3548
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.075,
+              "mean_relocations_per_container": 0.5638888888888889,
+              "total_relocations": 203
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.225,
+              "mean_relocations_per_container": 0.51875,
+              "total_relocations": 249
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.025,
+              "mean_relocations_per_container": 0.4683333333333334,
+              "total_relocations": 281
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.45,
+              "mean_relocations_per_container": 0.46944444444444444,
+              "total_relocations": 338
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 9.35,
+              "mean_relocations_per_container": 0.44523809523809527,
+              "total_relocations": 374
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 10.7,
+              "mean_relocations_per_container": 0.4458333333333333,
+              "total_relocations": 428
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 10.45,
+              "mean_relocations_per_container": 0.653125,
+              "total_relocations": 418
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.45,
+              "mean_relocations_per_container": 0.6725,
+              "total_relocations": 538
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 14.4,
+              "mean_relocations_per_container": 0.6,
+              "total_relocations": 576
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 16.575,
+              "mean_relocations_per_container": 0.5919642857142857,
+              "total_relocations": 663
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 36.0,
+              "mean_relocations_per_container": 0.72,
+              "total_relocations": 1440
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 16.1,
+              "mean_relocations_per_container": 0.805,
+              "total_relocations": 644
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 20.2,
+              "mean_relocations_per_container": 0.808,
+              "total_relocations": 808
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 23.475,
+              "mean_relocations_per_container": 0.7825,
+              "total_relocations": 939
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 25.6,
+              "mean_relocations_per_container": 0.7314285714285714,
+              "total_relocations": 1024
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 29.2,
+              "mean_relocations_per_container": 0.73,
+              "total_relocations": 1168
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 32.525,
+              "mean_relocations_per_container": 0.7227777777777777,
+              "total_relocations": 1301
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 51.15,
+              "mean_relocations_per_container": 0.8525,
+              "total_relocations": 2046
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 34.025,
+              "mean_relocations_per_container": 0.945138888888889,
+              "total_relocations": 1361
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 40.35,
+              "mean_relocations_per_container": 0.832959706959707,
+              "total_relocations": 20982
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 9.515625,
+              "mean_relocations_per_container": 0.5745349702380953,
+              "total_relocations": 3045
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 320,
+            "mean_relocations": 9.515625,
+            "mean_relocations_per_container": 0.5745349702380953,
+            "total_relocations": 3045
+          },
+          "lookahead_horizon": 20,
+          "macro_mean_relocations": 28.603571428571428,
+          "mean_relocations": 28.603571428571428,
+          "mean_relocations_per_container": 0.7345121882086167,
+          "runtime_seconds": 21.133985999971628,
+          "sample_std_relocations": 31.863927566436864,
+          "total_relocations": 24027,
+          "visible_target_count": 21
+        },
+        "5": {
+          "by_caserta_group": {
+            "10-10": {
+              "episodes": 40,
+              "mean_relocations": 188.475,
+              "mean_relocations_per_container": 1.88475,
+              "total_relocations": 7539
+            },
+            "10-6": {
+              "episodes": 40,
+              "mean_relocations": 112.375,
+              "mean_relocations_per_container": 1.8729166666666668,
+              "total_relocations": 4495
+            },
+            "3-3": {
+              "episodes": 40,
+              "mean_relocations": 5.275,
+              "mean_relocations_per_container": 0.586111111111111,
+              "total_relocations": 211
+            },
+            "3-4": {
+              "episodes": 40,
+              "mean_relocations": 6.375,
+              "mean_relocations_per_container": 0.53125,
+              "total_relocations": 255
+            },
+            "3-5": {
+              "episodes": 40,
+              "mean_relocations": 7.225,
+              "mean_relocations_per_container": 0.48166666666666663,
+              "total_relocations": 289
+            },
+            "3-6": {
+              "episodes": 40,
+              "mean_relocations": 8.775,
+              "mean_relocations_per_container": 0.4875,
+              "total_relocations": 351
+            },
+            "3-7": {
+              "episodes": 40,
+              "mean_relocations": 10.05,
+              "mean_relocations_per_container": 0.47857142857142854,
+              "total_relocations": 402
+            },
+            "3-8": {
+              "episodes": 40,
+              "mean_relocations": 12.0,
+              "mean_relocations_per_container": 0.5,
+              "total_relocations": 480
+            },
+            "4-4": {
+              "episodes": 40,
+              "mean_relocations": 11.1,
+              "mean_relocations_per_container": 0.69375,
+              "total_relocations": 444
+            },
+            "4-5": {
+              "episodes": 40,
+              "mean_relocations": 13.975,
+              "mean_relocations_per_container": 0.69875,
+              "total_relocations": 559
+            },
+            "4-6": {
+              "episodes": 40,
+              "mean_relocations": 15.425,
+              "mean_relocations_per_container": 0.6427083333333333,
+              "total_relocations": 617
+            },
+            "4-7": {
+              "episodes": 40,
+              "mean_relocations": 18.9,
+              "mean_relocations_per_container": 0.675,
+              "total_relocations": 756
+            },
+            "5-10": {
+              "episodes": 40,
+              "mean_relocations": 45.8,
+              "mean_relocations_per_container": 0.916,
+              "total_relocations": 1832
+            },
+            "5-4": {
+              "episodes": 40,
+              "mean_relocations": 17.3,
+              "mean_relocations_per_container": 0.865,
+              "total_relocations": 692
+            },
+            "5-5": {
+              "episodes": 40,
+              "mean_relocations": 21.825,
+              "mean_relocations_per_container": 0.873,
+              "total_relocations": 873
+            },
+            "5-6": {
+              "episodes": 40,
+              "mean_relocations": 27.0,
+              "mean_relocations_per_container": 0.9,
+              "total_relocations": 1080
+            },
+            "5-7": {
+              "episodes": 40,
+              "mean_relocations": 30.25,
+              "mean_relocations_per_container": 0.8642857142857142,
+              "total_relocations": 1210
+            },
+            "5-8": {
+              "episodes": 40,
+              "mean_relocations": 35.6,
+              "mean_relocations_per_container": 0.89,
+              "total_relocations": 1424
+            },
+            "5-9": {
+              "episodes": 40,
+              "mean_relocations": 40.825,
+              "mean_relocations_per_container": 0.9072222222222223,
+              "total_relocations": 1633
+            },
+            "6-10": {
+              "episodes": 40,
+              "mean_relocations": 66.85,
+              "mean_relocations_per_container": 1.1141666666666667,
+              "total_relocations": 2674
+            },
+            "6-6": {
+              "episodes": 40,
+              "mean_relocations": 38.725,
+              "mean_relocations_per_container": 1.0756944444444445,
+              "total_relocations": 1549
+            }
+          },
+          "by_fixed_size_regime": {
+            "N_gt_21": {
+              "episodes": 520,
+              "mean_relocations": 50.31153846153846,
+              "mean_relocations_per_container": 1.0089033882783884,
+              "total_relocations": 26162
+            },
+            "N_le_21": {
+              "episodes": 320,
+              "mean_relocations": 10.009375,
+              "mean_relocations_per_container": 0.6028249007936508,
+              "total_relocations": 3203
+            }
+          },
+          "episodes": 840,
+          "fully_visible_from_initial_state": {
+            "episodes": 0
+          },
+          "lookahead_horizon": 5,
+          "macro_mean_relocations": 34.958333333333336,
+          "mean_relocations": 34.958333333333336,
+          "mean_relocations_per_container": 0.8542068216175358,
+          "runtime_seconds": 24.012601500027813,
+          "sample_std_relocations": 42.559354076256376,
+          "total_relocations": 29365,
+          "visible_target_count": 6
+        }
+      },
+      "provenance": {
+        "adapter_checkpoint": "output\\moe_lora_long_20260917_seed20260933\\best.adapter.pt",
+        "adapter_sha256": "abf410c8ac6fc155afb821830f99adf2ff96b8ff21c52a02e048ddcc9bc60058",
+        "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+        "inference": "greedy_fp32",
+        "moe_lora_config": {
+          "alpha": 16.0,
+          "bias": true,
+          "dropout": 0.0,
+          "in_features": 512,
+          "num_experts": 2,
+          "out_features": 128,
+          "rank": 8,
+          "routing": "dense_per_stack_input_softmax",
+          "target_module": "stack_projection.2",
+          "temperature": 1.0
+        },
+        "parameter_counts": {
+          "total_parameters": 1117108,
+          "trainable_parameter_fraction": 0.010084969403137387,
+          "trainable_parameters": 11266
+        },
+        "seed": 20260933,
+        "selected_epoch": 4,
+        "training_lookahead_horizon": 20
+      }
+    }
+  },
+  "models_are_frozen": true,
+  "protocol": "final_moe_on_exact_original_caserta_table2_840_v1",
+  "quick_check": false
+}

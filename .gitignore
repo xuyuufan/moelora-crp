@@ -1,0 +1,12 @@
+﻿# Keep local-only full-package manifests; public subset has separate manifests.
+/MANIFEST.csv
+/SHA256SUMS
+# Third-party reference paper and local text extraction are retained locally only.
+/sources/参考论文/ICLR-2024-mixture-of-lora-experts-Paper-Conference.pdf
+/sources/archive/20261009_hybrid_direction/experiments/paper_scout_20261008/offline_optimum/lit_txt/ICLR-2024-mixture-of-lora-expe.txt
+# Prevent generated and environment files if they appear later.
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.venv/
+**/venv/

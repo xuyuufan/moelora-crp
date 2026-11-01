@@ -1,0 +1,16 @@
+{"episodes": 840, "lookahead_horizon": 0, "mean_relocations_per_container": 1.247423941798942, "method": "MijnRL_base", "total_relocations": 41277}
+{"episodes": 840, "lookahead_horizon": 5, "mean_relocations_per_container": 0.8909734032501889, "method": "MijnRL_base", "total_relocations": 30907}
+{"episodes": 840, "lookahead_horizon": 10, "mean_relocations_per_container": 0.7883022959183673, "method": "MijnRL_base", "total_relocations": 26639}
+{"episodes": 840, "lookahead_horizon": 20, "mean_relocations_per_container": 0.7339531368102797, "method": "MijnRL_base", "total_relocations": 23993}
+{"episodes": 840, "lookahead_horizon": 0, "mean_relocations_per_container": 1.0762852891156462, "method": "MoE_seed20260913", "total_relocations": 36672}
+{"episodes": 840, "lookahead_horizon": 5, "mean_relocations_per_container": 0.8536792328042327, "method": "MoE_seed20260913", "total_relocations": 29335}
+{"episodes": 840, "lookahead_horizon": 10, "mean_relocations_per_container": 0.7831864606953893, "method": "MoE_seed20260913", "total_relocations": 26381}
+{"episodes": 840, "lookahead_horizon": 20, "mean_relocations_per_container": 0.73434268707483, "method": "MoE_seed20260913", "total_relocations": 24028}
+{"episodes": 840, "lookahead_horizon": 0, "mean_relocations_per_container": 1.0835848450491308, "method": "MoE_seed20260923", "total_relocations": 36872}
+{"episodes": 840, "lookahead_horizon": 5, "mean_relocations_per_container": 0.8553673941798942, "method": "MoE_seed20260923", "total_relocations": 29379}
+{"episodes": 840, "lookahead_horizon": 10, "mean_relocations_per_container": 0.7841893896447467, "method": "MoE_seed20260923", "total_relocations": 26409}
+{"episodes": 840, "lookahead_horizon": 20, "mean_relocations_per_container": 0.7342371031746032, "method": "MoE_seed20260923", "total_relocations": 24027}
+{"episodes": 840, "lookahead_horizon": 0, "mean_relocations_per_container": 1.0784699546485261, "method": "MoE_seed20260933", "total_relocations": 36875}
+{"episodes": 840, "lookahead_horizon": 5, "mean_relocations_per_container": 0.8542068216175358, "method": "MoE_seed20260933", "total_relocations": 29365}
+{"episodes": 840, "lookahead_horizon": 10, "mean_relocations_per_container": 0.7839427437641724, "method": "MoE_seed20260933", "total_relocations": 26397}
+{"episodes": 840, "lookahead_horizon": 20, "mean_relocations_per_container": 0.7345121882086167, "method": "MoE_seed20260933", "total_relocations": 24027}

@@ -1,0 +1,182 @@
+[
+  {
+    "Path": "checkpoints/h20.best.pt",
+    "OriginalSHA256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+    "ArchivedSHA256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "data/online_crp/caserta_table2_840.json",
+    "OriginalSHA256": "c28c975c8026a59a1b7995f8afe8a41e9e48b469835b9d2227a9bbe7a5371a12",
+    "ArchivedSHA256": "c28c975c8026a59a1b7995f8afe8a41e9e48b469835b9d2227a9bbe7a5371a12",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "data/online_crp/caserta_table2_840.audit.json",
+    "OriginalSHA256": "db287346248b6589bf82a30bfc3c0354b1288bb9fb3d6c8296d8dc2faf6cc7f7",
+    "ArchivedSHA256": "db287346248b6589bf82a30bfc3c0354b1288bb9fb3d6c8296d8dc2faf6cc7f7",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "data/online_crp/lora_domains/large_scale_n100_150/adapt_train.json",
+    "OriginalSHA256": "42a05cef63a9ebb123b62b79f43d29c5d214c2d36e81e314fdcf2d6b3b1d5cfe",
+    "ArchivedSHA256": "42a05cef63a9ebb123b62b79f43d29c5d214c2d36e81e314fdcf2d6b3b1d5cfe",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "data/online_crp/lora_domains/large_scale_n100_150/adapt_train.json.metadata.json",
+    "OriginalSHA256": "fafc7b48302cb4cb9ddfb1286d46679f5df736ad2c65a812eb5c62871748c321",
+    "ArchivedSHA256": "fafc7b48302cb4cb9ddfb1286d46679f5df736ad2c65a812eb5c62871748c321",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "data/online_crp/lora_domains/large_scale_n100_150/validation.json",
+    "OriginalSHA256": "45d3c0dc67dff431284de9b7e20eb62fd5e59ad77a777e3e7783a020f11d928d",
+    "ArchivedSHA256": "45d3c0dc67dff431284de9b7e20eb62fd5e59ad77a777e3e7783a020f11d928d",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "data/online_crp/lora_domains/large_scale_n100_150/test_sealed.json",
+    "OriginalSHA256": "f39dd732223255efe118b019aa699261262fd1946665544560b0f009acf6203a",
+    "ArchivedSHA256": "f39dd732223255efe118b019aa699261262fd1946665544560b0f009acf6203a",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_long_20260917_seed20260913/best.adapter.pt",
+    "OriginalSHA256": "a4c83c37cd20b8867ce679aace0087a2833f7d998d297a90d2d2b894128ce47b",
+    "ArchivedSHA256": "a4c83c37cd20b8867ce679aace0087a2833f7d998d297a90d2d2b894128ce47b",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_long_20260917_seed20260913/metrics.jsonl",
+    "OriginalSHA256": "6addd3620768b6a11d689fd765731b3e5499e4c6d4e5d540a6cac860fa1b131b",
+    "ArchivedSHA256": "6addd3620768b6a11d689fd765731b3e5499e4c6d4e5d540a6cac860fa1b131b",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_long_20260917_seed20260923/best.adapter.pt",
+    "OriginalSHA256": "63d0b77a0a4e5c79ba65c508d985e81cc41be80928eb4bd3b429c5f705496c0a",
+    "ArchivedSHA256": "63d0b77a0a4e5c79ba65c508d985e81cc41be80928eb4bd3b429c5f705496c0a",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_long_20260917_seed20260923/metrics.jsonl",
+    "OriginalSHA256": "780279d4d482fda7be25c6e7d2571955f3d772168e888424ac0dd2e06027a345",
+    "ArchivedSHA256": "780279d4d482fda7be25c6e7d2571955f3d772168e888424ac0dd2e06027a345",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_long_20260917_seed20260933/best.adapter.pt",
+    "OriginalSHA256": "abf410c8ac6fc155afb821830f99adf2ff96b8ff21c52a02e048ddcc9bc60058",
+    "ArchivedSHA256": "abf410c8ac6fc155afb821830f99adf2ff96b8ff21c52a02e048ddcc9bc60058",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_long_20260917_seed20260933/metrics.jsonl",
+    "OriginalSHA256": "800074fa9e8597518ab64ff65b91412f9da9f57eae3a2d51375c12eeb921afcd",
+    "ArchivedSHA256": "800074fa9e8597518ab64ff65b91412f9da9f57eae3a2d51375c12eeb921afcd",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_test_sealed_20260917/episode_results.jsonl",
+    "OriginalSHA256": "39dff68038ec66596f90c2e96abe6b684a48157654726a4590326922314d8f61",
+    "ArchivedSHA256": "39dff68038ec66596f90c2e96abe6b684a48157654726a4590326922314d8f61",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_test_sealed_20260917/summary.json",
+    "OriginalSHA256": "621986ea1c2f8d39497e6d0842a1410bb0799b87134cbb33172a421d7440fa57",
+    "ArchivedSHA256": "621986ea1c2f8d39497e6d0842a1410bb0799b87134cbb33172a421d7440fa57",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_caserta_20260918/episode_results.jsonl",
+    "OriginalSHA256": "51f163265dc0c0c169ea65476bc5494ee43cdf6d09fe2cdff0bd04e006b10615",
+    "ArchivedSHA256": "51f163265dc0c0c169ea65476bc5494ee43cdf6d09fe2cdff0bd04e006b10615",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_caserta_20260918/progress.jsonl",
+    "OriginalSHA256": "d08fe925094ebc5d4028ad0d9c63b0a81e4992157b6f98a0da6007ec88d452f4",
+    "ArchivedSHA256": "d08fe925094ebc5d4028ad0d9c63b0a81e4992157b6f98a0da6007ec88d452f4",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_caserta_20260918/summary.json",
+    "OriginalSHA256": "46fb9773fdcf973fb2214214fd91db8792424ee615181e4cae5b56248057a7d8",
+    "ArchivedSHA256": "46fb9773fdcf973fb2214214fd91db8792424ee615181e4cae5b56248057a7d8",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_caserta_20260918/caserta_21_group_comparison.xlsx",
+    "OriginalSHA256": "cbc00da6a9ee87635c82fc74bc0f6e75568522634235c25f333d540db9d02834",
+    "ArchivedSHA256": "cbc00da6a9ee87635c82fc74bc0f6e75568522634235c25f333d540db9d02834",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_caserta_20260918/group_comparison.csv",
+    "OriginalSHA256": "390191beb10d6962961c8268617a3a1025c5b5502d6e1494aa6847004ffc8b38",
+    "ArchivedSHA256": "390191beb10d6962961c8268617a3a1025c5b5502d6e1494aa6847004ffc8b38",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_caserta_20260918/group_comparison.json",
+    "OriginalSHA256": "153b2b5c8a643049312cc04f2d47396ecf1c1e55d1067db3005677e52f394dfa",
+    "ArchivedSHA256": "153b2b5c8a643049312cc04f2d47396ecf1c1e55d1067db3005677e52f394dfa",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_caserta_20260918/group_comparison.md",
+    "OriginalSHA256": "9b99e1ce222825816b2883cef7e34fced16697096e121681e24505212000ea8d",
+    "ArchivedSHA256": "9b99e1ce222825816b2883cef7e34fced16697096e121681e24505212000ea8d",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/moe_lora_caserta_20260918/group_seed_detail.csv",
+    "OriginalSHA256": "40145a6801dc2b70625a58d638237527b8adcdc3f396cdce962471d0e5cd94c4",
+    "ArchivedSHA256": "40145a6801dc2b70625a58d638237527b8adcdc3f396cdce962471d0e5cd94c4",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/pdf/h20_problem_definition.pdf",
+    "OriginalSHA256": "e717ba858043e0da337eddc6702779ac8d0c145357f5fca368b55d188358ee49",
+    "ArchivedSHA256": "e717ba858043e0da337eddc6702779ac8d0c145357f5fca368b55d188358ee49",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/pdf/h20_problem_definition_cn.pdf",
+    "OriginalSHA256": "1809428edb394103e050db24ea109a2d5c9ade2df5193164cd5192d9286f370e",
+    "ArchivedSHA256": "1809428edb394103e050db24ea109a2d5c9ade2df5193164cd5192d9286f370e",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "output/pdf/tab_moe_caserta_groups.pdf",
+    "OriginalSHA256": "ce7d75e8b5ccdd2e15b276538765f015f0a8360c2d26b9b414940054c50faa85",
+    "ArchivedSHA256": "f9556e5d9646b49994338ff46dac55bdf5762ca724ed3c6d522df5f2057f81de",
+    "MatchesOriginal": false
+  },
+  {
+    "Path": "figures/fig_moe_sealed_test.pdf",
+    "OriginalSHA256": "c2ec7ecb3c7a6a651f7a6125c42587da37635dc7600cedf0256a5183fd26decb",
+    "ArchivedSHA256": "c2ec7ecb3c7a6a651f7a6125c42587da37635dc7600cedf0256a5183fd26decb",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "figures/fig_moe_sealed_test.png",
+    "OriginalSHA256": "44c70b145bf6da670981ba9bc2405eba5f9beaa2f2fa1477a4a99180473f7325",
+    "ArchivedSHA256": "44c70b145bf6da670981ba9bc2405eba5f9beaa2f2fa1477a4a99180473f7325",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "figures/fig_moe_caserta_horizons.pdf",
+    "OriginalSHA256": "9a260d7c415df42d07843036e3b756b17566c885326d031984318b18ca80ff4c",
+    "ArchivedSHA256": "9a260d7c415df42d07843036e3b756b17566c885326d031984318b18ca80ff4c",
+    "MatchesOriginal": true
+  },
+  {
+    "Path": "figures/fig_moe_caserta_horizons.png",
+    "OriginalSHA256": "3dc30646330a46faf86023cd66c9635b05643b0c749b4c8d982973590e81ab36",
+    "ArchivedSHA256": "3dc30646330a46faf86023cd66c9635b05643b0c749b4c8d982973590e81ab36",
+    "MatchesOriginal": true
+  }
+]

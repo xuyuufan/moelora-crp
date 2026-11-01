@@ -1,0 +1,110 @@
+{"best_epoch": 1, "epoch": 1, "stop_reason": null, "updates": 66, "validation_r_per_n": 0.9304928691994809}
+{"best_epoch": 2, "epoch": 2, "stop_reason": null, "updates": 132, "validation_r_per_n": 0.9294961461087808}
+{"best_epoch": 2, "epoch": 3, "stop_reason": null, "updates": 198, "validation_r_per_n": 0.9299152618186634}
+{"best_epoch": 2, "epoch": 4, "stop_reason": null, "updates": 264, "validation_r_per_n": 0.9296405658557052}
+{"best_epoch": 2, "epoch": 5, "stop_reason": null, "updates": 330, "validation_r_per_n": 0.9309808608582206}
+{
+  "adaptation_config": {
+    "adapter_kind": "moe_lora",
+    "alpha": 32.0,
+    "batch_seed": null,
+    "batch_size": 16,
+    "domain": "large_scale_n100_150",
+    "dropout": 0.0,
+    "entropy_coefficient": 0.002,
+    "environment_engine": "vectorized",
+    "epochs": 5,
+    "gradient_clip_norm": 1.0,
+    "initialization_seed": null,
+    "learning_rate": 0.0003,
+    "lookahead_horizon": 20,
+    "max_adaptation_minutes": null,
+    "max_updates": null,
+    "num_experts": 2,
+    "precision_mode": "fp16",
+    "rank": 16,
+    "replay_decision_batch_size": 2048,
+    "rollout_seed": null,
+    "rollouts_per_instance": 8,
+    "router_balance_coefficient": 0.01,
+    "runtime_validation": false,
+    "seed": 20260913,
+    "target_modules": [
+      "stack_projection.2"
+    ],
+    "updates_per_epoch": null
+  },
+  "adaptation_structure": {
+    "alpha": 32.0,
+    "bias": true,
+    "dropout": 0.0,
+    "in_features": 512,
+    "num_experts": 2,
+    "out_features": 128,
+    "rank": 16,
+    "routing": "dense_per_stack_input_softmax",
+    "target_module": "stack_projection.2",
+    "temperature": 1.0
+  },
+  "adapter_kind": "moe_lora",
+  "applied_updates": 330,
+  "attempted_updates": 330,
+  "base_checkpoint": "checkpoints/h20.best.pt",
+  "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+  "base_lookahead_horizon": 20,
+  "base_policy_architecture": "scale_diverse_online_2d_v1",
+  "best_epoch": 2,
+  "best_epoch_elapsed_seconds": 1066.2228686000162,
+  "best_output": "output\\moe_lora_2xr16_20260917_seed20260913\\best.adapter.pt",
+  "best_validation_mean_relocations_per_container": 0.9294961461087808,
+  "changed_trainable_parameter_names": [
+    "stack_projection.2.experts.0.lora_A",
+    "stack_projection.2.experts.0.lora_B",
+    "stack_projection.2.experts.1.lora_A",
+    "stack_projection.2.experts.1.lora_B",
+    "stack_projection.2.router.weight",
+    "stack_projection.2.router.bias"
+  ],
+  "checkpoint_seconds_total": 0.2236871000204701,
+  "completed_epochs": 5,
+  "elapsed_seconds": 2576.5851167000073,
+  "final_scoring_precision": "fp32",
+  "frozen_base_unchanged": true,
+  "metrics_output": "output\\moe_lora_2xr16_20260917_seed20260913\\metrics.jsonl",
+  "output": "output\\moe_lora_2xr16_20260917_seed20260913\\latest.adapter.pt",
+  "parameter_counts": {
+    "total_parameters": 1127348,
+    "trainable_parameter_fraction": 0.019076629399262694,
+    "trainable_parameters": 21506
+  },
+  "peak_memory_bytes": 3356913152,
+  "record_type": "run_complete",
+  "resolved_seeds": {
+    "batch": 20280916,
+    "initialization": 20270914,
+    "rollout": 20290920
+  },
+  "run_format": "mijnrl_h20_moe_lora_run_v1",
+  "selection_metric": "validation_mean_relocations_per_container",
+  "skipped_updates": 0,
+  "stop_reason": null,
+  "test_manifest_used": false,
+  "train_episode_count": 1024,
+  "train_manifest": "data/online_crp/lora_domains/large_scale_n100_150/adapt_train.json",
+  "train_manifest_sha256": "42a05cef63a9ebb123b62b79f43d29c5d214c2d36e81e314fdcf2d6b3b1d5cfe",
+  "trainable_parameter_names": [
+    "stack_projection.2.experts.0.lora_A",
+    "stack_projection.2.experts.0.lora_B",
+    "stack_projection.2.experts.1.lora_A",
+    "stack_projection.2.experts.1.lora_B",
+    "stack_projection.2.router.weight",
+    "stack_projection.2.router.bias"
+  ],
+  "training_loss_definition": "equal-trajectory normalized-cost policy loss plus action entropy and weighted router balance auxiliary loss",
+  "training_seconds_total": 2403.375811900012,
+  "validation_episode_count": 200,
+  "validation_manifest": "data/online_crp/lora_domains/large_scale_n100_150/validation.json",
+  "validation_manifest_sha256": "45d3c0dc67dff431284de9b7e20eb62fd5e59ad77a777e3e7783a020f11d928d",
+  "validation_precision": "fp32_greedy",
+  "validation_seconds_total": 172.84787079997477
+}

@@ -1,0 +1,277 @@
+{
+  "adapter_episode_solutions_checked": 10080,
+  "adapter_relocation_decisions_checked": 349767,
+  "base_reference_episode_solutions_checked": 3360,
+  "checkpoint_provenance": {
+    "MijnRL_base": {
+      "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+      "inference": "greedy_fp32",
+      "parameter_counts": {
+        "total_parameters": 1105842,
+        "trainable_parameter_fraction": 0.0,
+        "trainable_parameters": 0
+      },
+      "training_lookahead_horizon": 20
+    },
+    "MoE_seed20260913": {
+      "adapter_checkpoint": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260913\\best.adapter.pt",
+      "adapter_sha256": "a4c83c37cd20b8867ce679aace0087a2833f7d998d297a90d2d2b894128ce47b",
+      "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+      "inference": "greedy_fp32",
+      "moe_lora_config": {
+        "alpha": 16.0,
+        "bias": true,
+        "dropout": 0.0,
+        "in_features": 512,
+        "num_experts": 2,
+        "out_features": 128,
+        "rank": 8,
+        "routing": "dense_per_stack_input_softmax",
+        "target_module": "stack_projection.2",
+        "temperature": 1.0
+      },
+      "parameter_counts": {
+        "total_parameters": 1117108,
+        "trainable_parameter_fraction": 0.010084969403137387,
+        "trainable_parameters": 11266
+      },
+      "seed": 20260913,
+      "selected_epoch": 2,
+      "training_lookahead_horizon": 20
+    },
+    "MoE_seed20260923": {
+      "adapter_checkpoint": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260923\\best.adapter.pt",
+      "adapter_sha256": "63d0b77a0a4e5c79ba65c508d985e81cc41be80928eb4bd3b429c5f705496c0a",
+      "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+      "inference": "greedy_fp32",
+      "moe_lora_config": {
+        "alpha": 16.0,
+        "bias": true,
+        "dropout": 0.0,
+        "in_features": 512,
+        "num_experts": 2,
+        "out_features": 128,
+        "rank": 8,
+        "routing": "dense_per_stack_input_softmax",
+        "target_module": "stack_projection.2",
+        "temperature": 1.0
+      },
+      "parameter_counts": {
+        "total_parameters": 1117108,
+        "trainable_parameter_fraction": 0.010084969403137387,
+        "trainable_parameters": 11266
+      },
+      "seed": 20260923,
+      "selected_epoch": 2,
+      "training_lookahead_horizon": 20
+    },
+    "MoE_seed20260933": {
+      "adapter_checkpoint": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260933\\best.adapter.pt",
+      "adapter_sha256": "abf410c8ac6fc155afb821830f99adf2ff96b8ff21c52a02e048ddcc9bc60058",
+      "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+      "inference": "greedy_fp32",
+      "moe_lora_config": {
+        "alpha": 16.0,
+        "bias": true,
+        "dropout": 0.0,
+        "in_features": 512,
+        "num_experts": 2,
+        "out_features": 128,
+        "rank": 8,
+        "routing": "dense_per_stack_input_softmax",
+        "target_module": "stack_projection.2",
+        "temperature": 1.0
+      },
+      "parameter_counts": {
+        "total_parameters": 1117108,
+        "trainable_parameter_fraction": 0.010084969403137387,
+        "trainable_parameters": 11266
+      },
+      "seed": 20260933,
+      "selected_epoch": 4,
+      "training_lookahead_horizon": 20
+    }
+  },
+  "count_mismatches": 0,
+  "future_information_leakage_detected": false,
+  "horizon_definition": "current target plus H future targets",
+  "horizons": [
+    0,
+    5,
+    10,
+    20
+  ],
+  "illegal_actions_after_mask": 0,
+  "instances": 840,
+  "manifest_sha256": "c28c975c8026a59a1b7995f8afe8a41e9e48b469835b9d2227a9bbe7a5371a12",
+  "methods": {
+    "MijnRL_base": {
+      "automatic_retrievals_observed": 108952,
+      "by_horizon": {
+        "0": {
+          "decisions": 41277,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 0,
+          "total_relocations": 41277
+        },
+        "10": {
+          "decisions": 26639,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 177,
+          "total_relocations": 26639
+        },
+        "20": {
+          "decisions": 23993,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 130,
+          "total_relocations": 23993
+        },
+        "5": {
+          "decisions": 30907,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 353,
+          "total_relocations": 30907
+        }
+      },
+      "count_mismatches": 0,
+      "episode_solutions_checked": 3360,
+      "final_yards_valid": 3360,
+      "hidden_suffix_metamorphic_check": {
+        "0": true,
+        "10": true,
+        "20": true,
+        "5": true
+      },
+      "illegal_actions_after_mask": 0,
+      "raw_unmasked_argmax_illegal": 660,
+      "relocation_decisions_checked": 122816
+    },
+    "MoE_seed20260913": {
+      "automatic_retrievals_observed": 108952,
+      "by_horizon": {
+        "0": {
+          "decisions": 36672,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 0,
+          "total_relocations": 36672
+        },
+        "10": {
+          "decisions": 26381,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 123,
+          "total_relocations": 26381
+        },
+        "20": {
+          "decisions": 24028,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 73,
+          "total_relocations": 24028
+        },
+        "5": {
+          "decisions": 29335,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 143,
+          "total_relocations": 29335
+        }
+      },
+      "count_mismatches": 0,
+      "episode_solutions_checked": 3360,
+      "final_yards_valid": 3360,
+      "hidden_suffix_metamorphic_check": {
+        "0": true,
+        "10": true,
+        "20": true,
+        "5": true
+      },
+      "illegal_actions_after_mask": 0,
+      "raw_unmasked_argmax_illegal": 339,
+      "relocation_decisions_checked": 116416
+    },
+    "MoE_seed20260923": {
+      "automatic_retrievals_observed": 108952,
+      "by_horizon": {
+        "0": {
+          "decisions": 36872,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 0,
+          "total_relocations": 36872
+        },
+        "10": {
+          "decisions": 26409,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 127,
+          "total_relocations": 26409
+        },
+        "20": {
+          "decisions": 24027,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 92,
+          "total_relocations": 24027
+        },
+        "5": {
+          "decisions": 29379,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 136,
+          "total_relocations": 29379
+        }
+      },
+      "count_mismatches": 0,
+      "episode_solutions_checked": 3360,
+      "final_yards_valid": 3360,
+      "hidden_suffix_metamorphic_check": {
+        "0": true,
+        "10": true,
+        "20": true,
+        "5": true
+      },
+      "illegal_actions_after_mask": 0,
+      "raw_unmasked_argmax_illegal": 355,
+      "relocation_decisions_checked": 116687
+    },
+    "MoE_seed20260933": {
+      "automatic_retrievals_observed": 108952,
+      "by_horizon": {
+        "0": {
+          "decisions": 36875,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 0,
+          "total_relocations": 36875
+        },
+        "10": {
+          "decisions": 26397,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 133,
+          "total_relocations": 26397
+        },
+        "20": {
+          "decisions": 24027,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 85,
+          "total_relocations": 24027
+        },
+        "5": {
+          "decisions": 29365,
+          "episodes": 840,
+          "raw_unmasked_argmax_illegal": 136,
+          "total_relocations": 29365
+        }
+      },
+      "count_mismatches": 0,
+      "episode_solutions_checked": 3360,
+      "final_yards_valid": 3360,
+      "hidden_suffix_metamorphic_check": {
+        "0": true,
+        "10": true,
+        "20": true,
+        "5": true
+      },
+      "illegal_actions_after_mask": 0,
+      "raw_unmasked_argmax_illegal": 354,
+      "relocation_decisions_checked": 116664
+    }
+  },
+  "role": "external public benchmark; not used for model selection",
+  "runtime_seconds": 719.4752691000031,
+  "status": "PASS",
+  "validation": "FULL"
+}

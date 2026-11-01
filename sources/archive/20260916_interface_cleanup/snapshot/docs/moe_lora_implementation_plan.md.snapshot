@@ -1,0 +1,471 @@
+# MoE-LoRA 代码审查、整理与实施交接计划
+
+日期：2026-09-16。状态：**已审查当前工作区；本文是待执行计划，MoE-LoRA 尚未实现。**
+
+执行者：接手本项目的模型或工程师。本文以当前磁盘文件为准，不以 Git HEAD、旧 README 或旧实验方案为准。行号是审查时定位，执行时优先按函数名定位。
+
+## 1. 已确认的目标与执行边界
+
+用户已经选择：
+
+1. 将栈 embedding 的最后一个投影 `stack_projection[2]` 改为 MoE-LoRA。
+2. 使用当前 H20 基座，冻结全部原参数，只联合训练新 LoRA 专家和路由器。
+3. 暂不推进 Q8、D8；本次研究新结构，不继续旧实验队列。
+4. 先整理入口、实现新结构、验证小规模训练；不自动启动长训练或最终测试。
+
+具体配置：2 个 dense 专家，rank=8，alpha=16，dropout=0，输入相关 softmax 路由。专家数和 rank 等可以由命令配置，但本次交付默认配置固定为上述值。
+
+本次保留现有目录名 `scrp`、所有旧 Python 导入路径、旧 checkpoint 格式、既有未提交改动。不要顺手改成 `src`，不要删除旧适配模式，不重写原模型和环境。整理优先解决“哪个入口做什么、当前方案在哪里”，本轮不迁移整批源文件。
+
+## 2. 当前项目的真实状态
+
+### 2.1 审查基线
+
+- 仓库：`D:/DSAI/containter_new/Mijn_RL`。
+- Python：`D:/Anaconda/envs/fine_tuning/python.exe`；PyTorch `2.12.0+cu126`；CUDA 可用。
+- 当前 HEAD：`55a89eb71805df11174ab5f6ba5e06e821853dad`，但工作区有重要未提交改动，不能恢复 HEAD 来执行本计划。
+- 已执行：`python -B -m pytest -q tests`，结果 **67 passed, 1 warning in 9.29s**。
+- 警告仅为 `.pytest_cache` 无写入权限。后续使用 `-p no:cacheprovider` 即可，不为本任务修改目录 ACL。
+- 基座：`checkpoints/h20.best.pt`，V1，H=20，embed_dim=128，ffn_dim=512，3 个 encoder block，8 个 attention head。
+- 基座总参数：1,105,842；目标层：`Linear(512,128,bias=True)`。
+- 基座 SHA256：`aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0`。
+- 大规模域当前训练/验证各 1,024 / 200 个实例。本次审查未读取封存测试实例。
+
+当前被修改的核心文件有 `scrp/lora.py`、`scrp/scale_diverse_policy.py`、`scrp/post_tanh_residual.py`、`experiments/adapt_lora.py`。未跟踪文件包括最新的大规模实验运行器、分析器、测试及文档。另有文档删除和 `archive/` 归档变动。保留这些工作，不进行 `reset --hard`、`clean`、全目录覆盖或自动提交所有文件。
+
+### 2.2 当前模型：不是只有一个 embedding
+
+```text
+公开观测 priorities [B,S,T]
+  ├─ 相对优先级 + tier_position
+  │    → container_embedding: Linear(2,64), ReLU, Linear(64,128)
+  │    → stack_lstm: 128 → 128
+  │    → 拼接 outputs.mean 与 hidden[-1]: 256
+  │    → priority_projection: 256 → 128
+  └─ 高度/剩余容量/源栈标记/全局占用率
+       → layout_projection: Linear(4,64), ReLU, Linear(64,128)
+
+拼接 priority_embedding 与 layout_embedding: [B,S,256]
+  → stack_projection[0]: Linear(256,512)
+  → stack_projection[1]: ReLU
+  → stack_projection[2]: Linear(512,128)      ← 本次仅替换这里
+  → 3 × self-attention + FFN
+  → 源栈表示与全局均值拼接
+  → context_projection → cross_attention
+  → query_projection / key_projection
+  → FP32 点积 → tanh → 非法动作 mask → log_softmax
+```
+
+因此，本次不改 `container_embedding`，不改 LSTM，不改 encoder 的 FFN，也不在 decoder 加普通 LoRA。旧 D8F 改的是最后一个 encoder FFN，位置与本方案不同。
+
+### 2.3 当前调用链与模块职责
+
+```text
+旧 run_*.py / run_*.ps1
+        ↓
+experiments/adapt_lora.py::adapt
+        ├─ scrp/adaptation.py::load_h20_base_policy
+        ├─ scrp/lora.py / post_attention_lora.py / post_tanh_residual.py
+        ├─ experiments/train_online_crp_scale_diverse.py
+        │     ├─ _collect_scale_rollouts：无梯度采样
+        │     ├─ _backward_replay：重新前向，计算损失与 backward
+        │     └─ evaluate_fixed_validation：FP32 greedy 验证
+        └─ 保存 best/latest、日志和适配器
+
+experiments/evaluate_lora_adaptation.py
+        → scrp/adaptation.py::load_adaptation_checkpoint
+        → H20AdaptationSelector → 公共环境评估
+```
+
+| 文件/组 | 当前职责 | 本轮定位 |
+|---|---|---|
+| `scrp/online_crp.py`、`vectorized_online_crp.py`、`adaptation_data.py` | 环境、公开观测、数据与 split 校验 | 核心，保留 |
+| `scrp/scale_diverse_policy.py`，396 行 | V1/V2/V3 模型与策略前向 | 核心，保留现有计算 |
+| `scrp/lora.py`，394 行 | 普通 LoRA、模式列表、冻结规则、普通适配器序列化 | 小范围扩展新模式 |
+| `scrp/adaptation.py`，193 行 | 基座加载与适配 checkpoint 分发 | 接入新格式 |
+| `experiments/adapt_lora.py`，908 行 | 当前实际通用适配训练入口 | 继续作为唯一训练循环 |
+| `experiments/train_online_crp_scale_diverse.py`，2,170 行 | 原训练器，同时提供当前适配依赖的共享 rollout/replay/验证函数 | **仍在使用，不可当旧脚本移走** |
+| `evaluate_lora_adaptation.py`、`verify_lora_invariants.py` | 评估与不变量检查 | 扩展 MoE 支持 |
+| `benchmark_adaptation_throughput.py` | 适配更新吞吐测试 | 修正模式支持范围并接入 MoE |
+| `post_attention_lora.py`、`post_tanh_residual.py` | 旧适配结构及旧 checkpoint 依赖 | 兼容保留 |
+| Q8/D8/D8F、score、mid-LoRA 运行器和分析器 | 特定历史协议 | 标记历史入口，保留可导入 |
+| `archive/20260916_cleanup/` | 已归档文档和输出 | 保留，不重复搬迁 |
+
+### 2.4 已确认的问题与改造风险
+
+| 位置 | 发现 | 本次处理 |
+|---|---|---|
+| `README.md` | 仍以最早两域筛选为主；称 LoRA 只能作用于三投影，但代码已经支持自定义目标 | 重写导航与当前入口；历史命令移到单独的历史说明章节 |
+| `docs/h20_lora_ocrp_experiment_plan.md` 等 | 当前方案仍写 D8；部分引用指向已移走文档 | 标为历史方案并链接新计划；修复归档相对链接，保留原结论 |
+| `adapt_lora.py::_cpu_parameter_snapshots`（202）及结束校验（761） | 快照按名字排除适配参数，结束时又按 requires_grad 过滤，还静默跳过消失的名字 | 统一为安装/冻结后的固定冻结参数集合；检查名字、冻结状态和参数值 |
+| `benchmark_adaptation_throughput.py`（47、125） | CLI 接受全部 ADAPTATION_MODES，实际仅为 `lora` 安装适配器；其他需安装的模式会失败 | 使用本脚本真正支持的显式列表，并增加 MoE 安装与训练参数 |
+| `verify_lora_invariants.py`（80） | 零增量检查硬编码旧三投影 LoRA r4/a8；名称宣称 round-trip，但没有执行完整保存/重载比较 | 增加显式 MoE 模式、匹配结构的零增量检查和真正 round-trip |
+| `verify_lora_invariants.py`（134） | 输出比较结果后固定退出 0 | 必需不变量失败返回非零退出码 |
+| `adapt_lora.py`（616） | 将 replay_diagnostics 所有 key 累加到固定的三字段字典 | 新路由统计必须单独累加，否则新字段会 KeyError |
+| `_backward_replay`（1146） | 现有损失按 replay 子批逐次 backward；rollout 不保留梯度 | 路由辅助损失必须在 replay 同一次前向后、backward 前加入 |
+| `evaluate_lora_adaptation.py` | merge 只对普通 LoRA 生效，其他格式被静默忽略 | 对 MoE 加 merge 请求时明确报错，并记录实际 inference_mode |
+| 原模型最终评分（350） | 现有工作区已加入显式 autocast 禁用，保证评分 FP32 | 保留这项修复，不能用 HEAD 覆盖 |
+
+冻结快照问题属于规则冗余与校验不严，并不是“只要增加 router 当前代码就必然误报”。67 项测试通过也不表示已经覆盖 MoE；目前项目中尚无 MoE 实现。
+
+另一个已观察到的小问题：`_policy_shift_diagnostics` 先把全部 replay 观测转到 GPU，再截取诊断预算。它不阻塞本功能，本轮不混入额外性能重构。
+
+## 3. 从论文到本项目：明确采用什么
+
+参考本地论文：
+
+- [Mixture of LoRA Experts，ICLR 2024](../../参考论文/ICLR-2024-mixture-of-lora-experts-Paper-Conference.pdf)，§3.2–3.3：多个训练好的 LoRA 输出经门控混合，再加到基座输出；组合阶段主要训练门控，含均衡项。门控使用专家输出构造输入。
+- [Mixture-of-experts enhanced dynamic algorithm configuration…](../../参考论文/1-s2.0-S0957417426027090-main.pdf)，§3.2：mean/max 自适应融合后的全局表示，经两个异构普通专家和 dense 路由做残差增强；路由输入是搜索进度/改进信号，残差系数 0.1。**该论文没有 LoRA。**
+
+本项目选择：共享冻结线性基座 + 多个低秩增量 + dense 输入路由。专家和 router 联合训练；每个栈独立路由；不直接移植 GCN、AFM、HV 奖励、两种异构专家、专家输出门控或论文的 0.1 残差系数。
+
+这属于结合论文思想的适配，不能在代码注释或论文里称为完整复现任一原方法。
+
+## 4. 新层的精确定义
+
+令 x 为现有 `stack_projection[1]` 输出，形状 `[B,S,512]`：
+
+```text
+g(x) = softmax(router(x), dim=-1)                 # [B,S,E]
+delta_i(x) = (alpha/rank) * B_i(A_i(x))           # [B,S,128]
+y = linear(x, W0, b0) + sum_i g_i(x) * delta_i(x) # [B,S,128]
+```
+
+默认 E=2、rank=8、alpha=16。每个专家 A 为 `[8,512]`，B 为 `[128,8]`，无专家 bias，A/B 之间无激活。router 为 `Linear(512,2,bias=True)`。所有栈都是真实栈，包括空栈；不要把空栈当 padding 或用“不可作为目标”的动作 mask 排除编码路由。
+
+- 共享 W0/b0 只存在一份；不要复制两个完整 `LoRALinear` 当专家。
+- 不继承现有 `LoRALinear`，避免被旧 `iter_lora_layers()`、保存、merge 逻辑误识别。可直接继承 `nn.Linear`，保留 `weight/bias` 原键名。
+- 每个 A 独立 Kaiming uniform；B 全零；router weight/bias 全零。零增量初始化时 y 与原层一致。
+- 从原层复制 device、dtype、bias 和 train/eval 状态；维度由原层读取，不能硬编码 512/128，否则小模型测试不可用。
+- router 的 Linear 和 softmax 都放在禁用 autocast 的 FP32 区域；专家矩阵乘沿用外部精度策略，混合归约使用 FP32，增量转回 base output dtype 后相加。
+- 本版 dropout 强制为 0，防止无梯度 rollout 与梯度 replay 使用不同随机路径。温度固定 1；不实现 top-k、容量限制、噪声路由、expert mask 或额外 LayerNorm。
+- 默认新增参数：`2*8*(512+128)+(512*2+2)=11,266`，总参数 1,117,108。可训练集合必须恰好包含这些新增参数。
+- 初始 B=0 时，任务损失对 A 和 router 的首步梯度可以为零；B 更新后再检查 A/router 的有效梯度，不能用首步零梯度判定结构错误。
+
+## 5. 文件级实施说明
+
+### 5.1 新增 `scrp/moe_lora.py`
+
+本文件集中负责新层、安装、路由捕获与 adapter 序列化，不另建通用插件注册框架。
+
+公开接口：
+
+```python
+MOE_LORA_MODE = "moe_lora"
+MOE_LORA_TARGET_MODULE = "stack_projection.2"
+MOE_LORA_ADAPTER_FORMAT = "mijnrl_moe_lora_adapter_v1"
+
+class LoRAExpert(nn.Module):
+    # 只有 lora_A、lora_B；forward 返回带 alpha/rank 缩放的增量。
+    ...
+
+class MoELoRALinear(nn.Linear):
+    experts: nn.ModuleList
+    router: nn.Linear
+    # from_linear(...)、forward(inputs) -> Tensor
+    ...
+
+def install_moe_lora(model, *, num_experts=2, rank=8, alpha=16.0,
+                     dropout=0.0) -> MoELoRALinear: ...
+def moe_lora_config(model) -> dict[str, object]: ...
+def moe_lora_state_dict(model) -> dict[str, torch.Tensor]: ...
+def save_moe_lora_adapter(path, model, *, base_checkpoint_sha256,
+                         metadata) -> Path: ...
+def load_moe_lora_adapter(model, path, *,
+                         expected_base_checkpoint_sha256=None,
+                         map_location="cpu") -> dict[str, object]: ...
+def capture_moe_lora_routing(model): ...  # contextmanager；见 5.3
+```
+
+安装器只替换固定目标，确认目标是原始 `nn.Linear`；重复安装、目标错误、已装其他适配器的组合应报错。本轮支持单一 MoE 适配模式，不把 Q8/D8 或残差头叠加进去。E/rank 是正整数（允许 E=1 做退化测试），alpha 有限且大于 0，dropout 必须为 0。
+
+推荐参数键为 `stack_projection.2.experts.0.lora_A`、`...lora_B`、`...experts.1...`、`stack_projection.2.router.weight/bias`。临时路由 Tensor 不是 Parameter 或 buffer，不进入 state_dict。
+
+保持模块依赖单向：`moe_lora.py` 不在顶层导入 `lora.py` 或 `adaptation.py`。冻结配置分支可以局部导入新类，避免环形导入。
+
+### 5.2 扩展 `scrp/lora.py`
+
+1. `ADAPTATION_MODES` 增加 `moe_lora`，不改变旧值和顺序语义。
+2. `configure_trainable_parameters()` 增加明确分支：先冻结全部，再只打开 MoE 的 A/B 和 router。必须验证 MoE 已安装；不能掉入现有最后的 post-attention 分支。
+3. `merge_lora_()` 对含 MoE 的模型明确拒绝，报错解释动态路由无法静态合并。
+4. 普通 LoRA 的安装、目标顺序、adapter v1 和 merge 行为保留。不要把新参数硬塞进旧 `lora_state_dict()`。
+
+### 5.3 扩展共享 `_backward_replay()`，不改原策略前向接口
+
+文件：`experiments/train_online_crp_scale_diverse.py`。只修改 replay 相关部分，不整体拆分这份 2,170 行文件。
+
+增加关键字参数 `router_balance_coefficient: float = 0.0`。旧调用不传时，损失和返回行为保持原语义。非 MoE 模型传非零系数时报错，避免静默忽略配置。
+
+路由捕获采用一个小的 contextmanager：`capture_moe_lora_routing(policy)`。
+
+- 未安装 MoE 时 yield None，无额外计算。
+- 安装 MoE 时只在上下文内允许目标层暂存当前前向的路由概率；每个子批开始清空，退出（包括异常）关闭捕获并清空。
+- 该上下文覆盖子批的前向、损失计算和 backward。概率不能 detach 后拿来算均衡损失。
+- rollout、验证、普通 inference 不进入捕获上下文，不长期保存路由计算图。不要靠 `model.training` 来隐式控制缓存，因为 rollout/验证会切换 train/eval。
+- `ScaleDiverseRelocationPolicy.encode()`、`action_log_probabilities()`、`forward()` 的返回类型与参数均不需要改变。
+
+对子批 c（n_c 个决策、S 个栈），定义：
+
+```text
+q_i = mean_{decision,stack} g_i
+L_bal(c) = -mean_i log(clamp(q_i,min=1e-8)) - log(E)
+L(c) = 原有策略损失与动作熵项
+       + router_balance_coefficient * (n_c / N) * L_bal(c)
+```
+
+N 是当前整次 replay 的决策数，不是 `loss_denominator` 的实例数。N=0 时保持原有零损失/零统计路径，不除零。MoE 新流程默认系数 0.01，普通模式传 0。
+
+**注意数学边界：** n_c/N 可避免辅助损失随子批个数直接放大，但 `log(mean(g))` 是非线性的，不同 chunk 划分不保证同一辅助目标。本版明确选择子批均衡，固定正式 replay batch size=2048；日志记录该值。只要求均衡系数为 0 时保留现有 RL 的 chunk 梯度等价测试，不伪造非零系数下的等价保证。
+
+`return_diagnostics=True` 时，保留原三个 score key；仅 MoE 模式新增嵌套 `moe` 字段，其内容均为已 detach 的 Python 标量/列表：
+
+- `decision_count`、`token_count`；token 指一个栈表示。
+- `router_weight_sums`（长度 E）、`router_entropy_sum`。
+- `balance_loss_weighted_sum`（已按 n_c/N 加权，未乘系数）。
+- 专家输出增量 L2 范数的和，用于观察两分支是否有区别。
+
+统计从同一次前向获得，不为日志再跑一次完整策略。不要保存所有子批概率历史。相应放宽 diagnostics 的类型注解以容纳嵌套字段。
+
+### 5.4 扩展 `experiments/adapt_lora.py`
+
+在现有循环中接入，禁止复制一份 `adapt()` 来训练 MoE：
+
+1. `AdaptationConfig` 增加 `num_experts=2`、`router_balance_coefficient=0.01`；仅新模式使用这两个字段。旧模式传给 replay 的系数仍为 0。
+   同步修改 `build_parser()` 与 `main()`，接通 `--num-experts`、`--router-balance-coefficient`，记录实际生效值，不能只添加 dataclass 字段。
+2. 原 rank=4/alpha=8 的通用默认值暂不改，防止改变旧脚本。新方法的正式命令和 smoke 脚本必须显式设置 rank=8/alpha=16；不能宣称裸 `--mode moe_lora` 自动切成 r8。
+3. validation 对 MoE 检查 E/rank、有限 alpha/均衡系数、dropout=0；拒绝 `lora_target_modules` 与 MoE 同时使用。
+4. 基座严格加载后安装 MoE，再调用冻结配置；优化器仍只接收 requires_grad=True 的参数。
+5. `adaptation_structure` 使用 `moe_lora_config()`；新模式的 run_format 使用 `mijnrl_h20_moe_lora_run_v1`，旧模式保留旧格式。best/latest 仍由现有验证 R/N 规则选择。
+6. `_save_run_checkpoint()` 分发到新的 adapter 保存函数，不落入 full-model 分支。
+7. 将 `_cpu_parameter_snapshots(...,include_lora=...)` 改为含义明确的冻结快照函数，只保存初始化冻结配置后 requires_grad=False 的参数。结束时要求这些名字仍存在、仍冻结且 Tensor 完全相等；不能跳过不匹配名字。普通 decoder/full 等旧模式也要有相应回归检查。
+8. replay 传入新系数；累计原 score 三字段时显式只读这三个字段，`moe` 单独累计，避免第 616 行处 KeyError。
+9. epoch 新增平均专家权重、路由熵、辅助损失、专家增量范数。按 token/decision 计数加权，不能简单平均不同大小 batch 的均值。epoch 0 无训练统计用 null，不用虚构零值。
+10. `epoch_mean_normalized_loss` 在新模式代表包含辅助项的总训练损失，在 metadata 写明；均衡损失另有独立字段。验证选模仍只看 R/N。
+
+该训练器的 checkpoint 当前不含完整 optimizer/RNG 恢复状态。本轮不新增 resume 功能，也不声称新适配器能精确断点续训。
+
+### 5.5 新 adapter 格式与 `scrp/adaptation.py` 分发
+
+新文件只保存 router 和专家参数，不重复保存冻结基座：
+
+```python
+{
+    "format": "mijnrl_moe_lora_adapter_v1",
+    "base_checkpoint_sha256": "...",
+    "moe_lora_config": {
+        "target_module": "stack_projection.2",
+        "in_features": 512,
+        "out_features": 128,
+        "bias": True,
+        "num_experts": 2,
+        "rank": 8,
+        "alpha": 16.0,
+        "dropout": 0.0,
+        "routing": "dense_per_stack_input_softmax",
+        "temperature": 1.0,
+    },
+    "adapter_state_dict": {
+        # 仅带完整模块前缀的专家 A/B、router weight/bias
+    },
+    "metadata": {
+        # 复用 adapt() 的 seed、训练配置、manifest 哈希、选模信息等
+    },
+}
+```
+
+加载顺序固定为：加载原基座且 strict=True → 核对新格式、base hash、目标和维度 → 创建临时替换层并校验全部 adapter key/shape → 加载成功后安装到模型 → 配置冻结范围。失败不得留下半安装的层。缺少或多出 router/expert 参数均报错；adapter 字典夹带基座 `weight/bias` 也报错。
+
+`load_adaptation_checkpoint()` 在现有分发中增加一个独立新格式分支。保留普通 LoRA、post-attention、full/decoder/残差格式的既有支持，不能修改这些格式字符串来“统一版本”。
+
+### 5.6 评估与不变量检查
+
+`experiments/evaluate_lora_adaptation.py`：
+
+- 通过统一加载器加载新格式；普通 action 调用无须改接口。
+- 新格式遇到 `merge_lora_for_inference=True` 立即报清晰错误，不静默跳过、不平均合并。
+- 评估 metadata 增加实际推理模式：MoE 为 `dynamic_moe_lora`；不能把参数少直接写成延迟更低。
+- 开发验证显式使用 `--split validation`。保留现有 BASE/Leveling 开发对照，不在此次工程改造中重写论文主对比或调用旧筛选分析器。
+
+`experiments/verify_lora_invariants.py`：
+
+- 增加 `--mode auto|lora|moe_lora`，默认 auto；有 adapter 时从格式和结构读取模式、rank、专家数、目标层，显式冲突报错。无 adapter 且 auto 时保留旧普通 LoRA 默认，MoE 无 adapter 时用本计划默认值。
+- 普通 LoRA 的零增量检查也使用给定 adapter 的真实目标列表，不能继续固定三投影；MoE 安装目标必须是栈投影。
+- 加载待检 adapter 后，在临时目录保存新副本，再加载到另一个新基座，比较合法概率、mask 和 greedy 动作。这才算 round-trip。
+- MoE 输出 `merge_supported=false` 及原因，跳过合并等价检查，不能把“未检查”写成“通过”。其他本工具尚未实现零增量检查的旧格式明确标记不适用，不拿普通 LoRA 的结果冒充该格式结果。
+- `_comparison()` 必须检查 mask 一致、合法输出有限、概率/动作一致，不能只忽略 inf 后计算差值。NaN 不能被当成成功。
+- 输出必需检查的 `passed` 汇总；检查失败退出码为 1，成功为 0。
+- 不变更 H20 公开信息限制；新模式加入“未揭示未来顺序改变而公开观测相同，动作不变”的测试。
+
+### 5.7 修正吞吐入口，而不是扩大支持声明
+
+`experiments/benchmark_adaptation_throughput.py` 本轮显式支持 `lora/full/decoder/moe_lora`。其余旧模式此前没有对应安装逻辑，CLI 应拒绝，不能继续直接使用全局 `ADAPTATION_MODES` 作为 choices。
+
+增加 MoE 的 rank、alpha、num_experts、均衡系数参数并安装新层；新模式使用与 adapt() 一致的 legacy loss、辅助项、梯度裁剪和精度流程。MoE 初始化设置固定 seed。旧 lora 的默认 r4/a8 保留，新 MoE 命令显式传 r8/a16。
+
+正式吞吐测量仍作为后续实验，本次只测相关路径能运行；不要拿 3 次 smoke 更新推导正式加速比。吞吐入口也不调用静态 merge。
+
+### 5.8 新增小规模端到端入口 `experiments/smoke_moe_lora.py`
+
+该脚本只负责小规模验证，调用既有 adapt()；它不是第二份训练器，不包含 Q8/D8/FULL 队列，不自动扩展成长训练。
+
+- 参数：`--base-checkpoint`、`--output-root`、`--device`、`--precision-mode`、`--seed`；默认基座路径如前，device=cpu，precision=fp32，seed=20260916。output-root 必填，存在产物则拒绝覆盖。
+- 固定使用大规模域。从通过原校验器的 adapt_train 和 validation 各按 `(shape,canonical_id)` 排序，每个合法 shape 取前 2 个，共 8 个训练和 8 个验证实例。
+- 只把这些子集保存到新 output-root 下的 `manifests/`，保留原 episode metadata、domain、split；额外记录源清单路径/哈希与选中 ID。不得重新调用三 split 生成器，因为它会生成封存测试集。
+- 固定 mode=moe_lora、E=2、r=8、alpha=16、dropout=0、LR=3e-4、均衡系数=0.01、batch_size=2、K=2、replay_decision_batch_size=32、epochs=1、updates_per_epoch=3、max_updates=3。
+- 使用 vectorized 环境，runtime_validation=True；诊断预算=16。验证仍用 FP32 greedy，CUDA smoke 可以用 FP16 训练。
+- 调用 adapt() 写出 `latest.adapter.pt`、`best.adapter.pt`、`metrics.jsonl` 和 `summary.json`；继续执行新不变量检查，写 `invariants.json`。
+- 验证确实完成 3 个 applied updates、skipped=0、冻结基座不变、输出有限且动作合法、保存加载一致。未满足时以非零退出码结束。
+- 单个 smoke 设 10 分钟适配时间上限，超时写未完成而非成功；不得因想“看效果”自行加长。
+
+## 6. 整理计划：先让主线清晰，保留可复现历史
+
+### 6.1 文档和入口目录
+
+新增 `docs/README.md` 作为文档索引。重写根 README 的前半部分，固定顺序：当前状态 → 模型图 → 环境/测试 → MoE smoke → MoE 手动训练示例 → validation 评估 → 历史入口索引。
+
+在 MoE 实现完成前，README 必须标明“计划中”；通过验收后才能改成“已实现，尚无正式性能结论”。本交接文档保留已审查基线和待执行说明，不把它伪装成结果报告。
+
+历史文档加简短状态标记，原实验结论、日期、指标不改写：
+
+- `h20_lora_ocrp_experiment_plan.md`：历史 D8 方案，本轮暂停执行。
+- `h20_problem_setting_for_advisor.md`：旧方法设定，尚未更新到 MoE。
+- `h20_problem_definition.tex` 与参考文献：保留，不因代码方案改变自动修改论文主张。
+- 已位于 `archive/20260916_cleanup/historical_docs/` 的材料继续保留；修复仍指向 docs 根目录旧文件的链接，例如大规模旧方案链接。
+
+### 6.2 历史代码不直接搬走
+
+在 README/文档索引明确分类下列入口，取消其“当前推荐命令”的地位；不移动文件、不改变导入路径：
+
+| 分类 | 入口 |
+|---|---|
+| 新方法主线 | `adapt_lora.py --mode moe_lora`、`evaluate_lora_adaptation.py`、扩展后的 `verify_lora_invariants.py`、新 smoke 脚本 |
+| 共享/维护工具 | `generate_lora_manifests.py`、`benchmark_adaptation_throughput.py`、`online_crp_fair_evaluation.py`、`train_online_crp_scale_diverse.py`、`plot_h20_reward_curve.py` |
+| 早期 LoRA 筛选 | `run_lora_screening.ps1`、`run_lora_rank8_validation.ps1`、`analyze_lora_screening.py` |
+| score-adaptation 历史 | `diagnose_h20_score_adaptation.py`、`run_h20_score_cross_screen.ps1`、`continue_h20_score_pipeline.ps1`、`run_h20_score_review.py`、`analyze_h20_score_screen.py`、`analyze_h20_score_review.py` |
+| mid/post-attention 历史 | `run_h20_mid_lora_experiment.py`、`analyze_h20_mid_lora.py` |
+| Q8/D8/D8F/FULL 历史协议 | `run_h20_large_scale_lora.py`、`analyze_h20_large_scale_lora.py` |
+| 原训练诊断 | `benchmark_precision_modes.py`、`analyze_h20_pilots.py` |
+
+部分测试直接导入这些旧运行器/分析器，原训练器也导入绘图模块。所谓“旧”表示本轮不作为研究入口，不等于安全删除的死代码。
+
+原 output 目录和 archive 本轮保持原位置；新产物仅写 `output/moe_lora_*/`。不为了目录整洁移动 checkpoint、数据或训练日志，也不自动提交输出文件。
+
+### 6.3 这轮明确不做的结构重构
+
+- 不把原训练器拆成新的 engine/trainer/config 框架；当前适配确实依赖它，拆分会扩大验证面。
+- 不引入通用 AdapterRegistry、自动发现、YAML 实验管理系统或新的训练框架。
+- 不删除 V2/V3、偏好解码、post-tanh/post-attention 支持，也不把旧兼容代码连根替换。
+- 不合并普通 LoRA 和 MoE checkpoint schema；动态路由需要独立表达。
+- 不添加纯全秩 MoE 实验来充当过渡任务。本轮直接实现最终的低秩专家结构，后续如需消融另定实验计划。
+
+## 7. 验收测试：必须测行为，不只测 shape
+
+新增 `tests/test_moe_lora.py` 与 `tests/test_moe_lora_integration.py`；相关旧测试留在原位置。
+
+### 7.1 层与模型测试
+
+1. CPU FP32：层输出以及完整策略合法 log-prob 在 B=0 时与原模型精确一致；mask/greedy 一致。
+2. 多个 batch/栈数/tiers，输出维度正确；实际空栈仍参与正常编码和路由。
+3. E=1、相同 A/B 时等价于单个普通 LoRA 的公式；E=2 与显式逐专家公式一致，确保 W0 只加一次。
+4. 非零 router 与非零专家下，构造两个输入得到不同门控权重；概率非负、沿专家轴和为 1。
+5. 默认真实架构新增 trainable=11,266；可训练名字集合完全匹配 A/B+router，其余参数保持冻结。
+6. 多步非退化任务损失下 B 更新，随后 A/router 有有限有效梯度；不要在 B=0 的首步强求 A/router 梯度非零。
+7. CUDA 可用时测试 FP16/BF16 autocast：router logits/probs 与最终 scoring 的 FP32 约束生效，输出/梯度有限；同一精度下零增量合法 log-prob 最大绝对差不超过 2e-5 且 greedy 一致。FP32 adapter 往返使用 rtol=1e-6、atol=1e-7，mask/动作必须一致。
+8. 错误参数、错误目标、重复安装、混合适配器拒绝。
+9. 已揭示 H20 公开观测相同、未揭示未来排列不同，策略输出不变。
+
+### 7.2 replay 与序列化测试
+
+1. 均衡概率产生约 0 的归一化均衡损失，偏斜概率产生更大损失；router 能从该项获得梯度。
+2. 手工小 replay 校验 `n_c/N` 权重，尾部不足 batch 的子批不被等权放大。
+3. 系数=0 时 MoE 保留策略梯度；旧 loss 的 exact-gradient/chunk 测试仍通过。非零辅助项只按已定义的子批目标检验。
+4. 正常返回、前向报错、backward 报错后捕获缓存均被清空；普通 rollout/inference 不保留概率图。
+5. replay 统计和 epoch 汇总处理 `moe` 字段无 KeyError；旧模式返回原字段且损失不变。
+6. 新 adapter round-trip 概率一致，错误 hash、shape、缺失/额外键、基座权重混入均拒绝；失败后原模型仍未被替换。
+7. 新格式的 merge 请求拒绝；原普通 LoRA merge/round-trip 仍通过。
+8. 冻结快照检测参数值变化、冻结参数被解冻或名字消失；decoder/full 的既有语义保持。
+9. 不变量工具自动识别新/旧 LoRA 结构，必需检查失败返回非零，不将 MoE 合并标成通过。
+10. 新 smoke 脚本只读取训练/验证清单；输出拒绝覆盖；实际 3 次更新→保存→重载→评估链路通过。
+
+现有完整 67 项测试是回归底线。新增测试不能通过删除断言、放宽动作合法性、跳过旧模块或重写旧预期来“通过”。
+
+## 8. 分阶段执行与每阶段交付
+
+| 阶段 | 做什么 | 完成条件 |
+|---|---|---|
+| A：基线与导航 | 记录当前工作区、基座/清单哈希、执行基线测试；整理 README 与文档索引 | 明确当前/历史入口；原 67 项通过，现有改动未丢失 |
+| B：新层 | 实现 `moe_lora.py` 的层、安装、冻结分支和纯模型测试 | 零增量一致、11,266 可训练参数、梯度和动态路由正确 |
+| C：持久化与验证 | 新 adapter 保存加载；统一加载器；评估与 verify 兼容 | 往返一致、失败不半安装、merge 明确拒绝、旧格式回归通过 |
+| D：训练接入 | replay 辅助项/统计；adapt config/保存/冻结校验；吞吐 choices 修正 | 新旧训练路径测试通过，无额外缓存图或统计错误 |
+| E：smoke 与交付 | 实现/运行小规模 CPU FP32 与可用的 CUDA FP16 smoke；完整回归；整理最终文档 | 各次 3 applied、0 skipped、哈希不变、验收报告完整；不自动进入长训练 |
+
+实现过程中按阶段检查 diff，避免一次大搬迁和功能修改混在一起。可以分阶段形成改动供审查，但不自动提交、推送或覆盖已有用户改动。
+
+计划涉及的源代码改动应主要限于：新增新层和 smoke 脚本；修改 `lora.py`、`adaptation.py`、`adapt_lora.py`、原训练器的 replay、评估/verify/吞吐入口；新增两份测试及文档导航。**策略模型本身不需要增加第二套网络或改 forward 签名。**
+
+## 9. 交付后应能运行的命令
+
+以下命令是待实现后的验收入口；现在尚不能运行 MoE 命令。
+
+```powershell
+Set-Location 'D:/DSAI/containter_new/Mijn_RL'
+$Py = 'D:/Anaconda/envs/fine_tuning/python.exe'
+
+# 当前已有测试，也用于改动后的完整回归
+& $Py -B -m pytest -q -p no:cacheprovider tests
+
+# 待新增：CPU FP32 小规模端到端验证
+& $Py -B -m experiments.smoke_moe_lora `
+  --device cpu --precision-mode fp32 `
+  --output-root output/moe_lora_smoke_cpu_20260916
+
+# CUDA 可用时：额外检查 AMP 路径，仍只有 3 次更新
+& $Py -B -m experiments.smoke_moe_lora `
+  --device cuda --precision-mode fp16 `
+  --output-root output/moe_lora_smoke_cuda_20260916
+
+# 使用 smoke 子集检查真实新 adapter；auto 从 adapter 读取结构
+& $Py -B -m experiments.verify_lora_invariants `
+  --base-checkpoint checkpoints/h20.best.pt `
+  --domain large_scale_n100_150 `
+  --validation-manifest output/moe_lora_smoke_cpu_20260916/manifests/validation.json `
+  --adapter output/moe_lora_smoke_cpu_20260916/latest.adapter.pt `
+  --mode auto --device cpu `
+  --output output/moe_lora_smoke_cpu_20260916/verify_manual.json
+```
+
+后续人工启动正式训练的模板如下；**本轮执行者只提供该命令，不执行**。这里的 5 epochs 是代码使用示例，不是已冻结的论文实验预算。
+
+```powershell
+& $Py -B -m experiments.adapt_lora `
+  --base-checkpoint checkpoints/h20.best.pt `
+  --domain large_scale_n100_150 `
+  --train-manifest data/online_crp/lora_domains/large_scale_n100_150/adapt_train.json `
+  --validation-manifest data/online_crp/lora_domains/large_scale_n100_150/validation.json `
+  --mode moe_lora --num-experts 2 --rank 8 --alpha 16 --dropout 0 `
+  --router-balance-coefficient 0.01 --learning-rate 3e-4 `
+  --epochs 5 --batch-size 16 --rollouts-per-instance 8 `
+  --replay-decision-batch-size 2048 --loss-mode legacy_normalized_trajectory_mean `
+  --device cuda --precision-mode fp16 --seed 20260916 `
+  --output output/moe_lora_train/large_scale.latest.adapter.pt
+```
+
+新增 CLI flag 必须与上面拼写一致。报告中记录实际 Python/PyTorch/CUDA、模式、结构配置、seed、更新数、manifest hash、基座 hash、测试命令与结果。性能改善不作为工程 smoke 的通过条件。
+
+## 10. 交接时的核对指纹
+
+这些指纹是审查时磁盘文件的 SHA256，不是要求回滚的目标。如执行时不同，先读 diff 并保留后续用户改动，再按函数职责适配计划。
+
+| 文件 | SHA256 |
+|---|---|
+| `scrp/lora.py` | `9cda53f969ea02c84d523b44f2b9e662cf359355b2899936134bf6838c168e05` |
+| `scrp/scale_diverse_policy.py` | `1d1605af18b10523ac3b1b912af936e961b23c691b4aaf9d7cd541d0cf59785d` |
+| `scrp/adaptation.py` | `58287fa5fee4b9e1a6e13053be2a9500ee88c0ae9ae719a9911e57933e8a8dc5` |
+| `experiments/adapt_lora.py` | `780a8781b4c6ee5beca2024a37c090b593786e58448be025a1cb8cdce86c1063` |
+| `experiments/train_online_crp_scale_diverse.py` | `c1fca0afb9e85dc1ce4e58d92f647fa359483b246ed8c2092666e06560373653` |
+| 大规模 `adapt_train.json` | `42a05cef63a9ebb123b62b79f43d29c5d214c2d36e81e314fdcf2d6b3b1d5cfe` |
+| 大规模 `validation.json` | `45d3c0dc67dff431284de9b7e20eb62fd5e59ad77a777e3e7783a020f11d928d` |
+
+## 11. 可以直接交给执行模型的指令
+
+> 请读取 `docs/moe_lora_implementation_plan.md`，先核对当前工作区和文中基线，再按 A→E 顺序实施。保留所有既有未提交改动和旧 checkpoint 兼容性。目标仅是在 `stack_projection[2]` 安装共享冻结基座的 dense MoE-LoRA，联合训练专家与路由器；冻结其余参数。复用现有 adapt()/rollout/replay，不复制训练循环，不删除旧模式，不搬迁 `scrp` 或旧运行器。完成文档导航、逐项验收测试和 3 次更新的 smoke；不要继续 Q8/D8 队列，不读封存测试实例，不自动运行长训练。若发现计划与代码有新的实质冲突，先说明事实和最小调整，不以大规模重写代替核对。最终交付源代码 diff、测试结果、smoke 产物路径及仍未验证的事项。
