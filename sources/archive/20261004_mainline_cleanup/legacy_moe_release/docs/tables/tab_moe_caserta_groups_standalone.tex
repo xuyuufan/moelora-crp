@@ -1,0 +1,16 @@
+% !TeX program = lualatex
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage{graphicx}
+% Preview-only fallbacks. The manuscript should load booktabs.
+\newcommand{\toprule}{\hline}
+\newcommand{\midrule}{\hline}
+\newcommand{\bottomrule}{\hline}
+\def\cmidrule(#1)#2{\cline{#2}}
+\makeatletter
+\renewenvironment{table}[1][]{\par\noindent\begin{minipage}{\textwidth}\def\@captype{table}}{\end{minipage}\par}
+\makeatother
+\pagestyle{empty}
+\begin{document}
+\input{tab_moe_caserta_groups.tex}
+\end{document}

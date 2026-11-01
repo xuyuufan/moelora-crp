@@ -1,0 +1,31 @@
+{
+  "adapters": {
+    "MoE_seed20260913": {
+      "path": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260913\\best.adapter.pt",
+      "sha256": "a4c83c37cd20b8867ce679aace0087a2833f7d998d297a90d2d2b894128ce47b"
+    },
+    "MoE_seed20260923": {
+      "path": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260923\\best.adapter.pt",
+      "sha256": "63d0b77a0a4e5c79ba65c508d985e81cc41be80928eb4bd3b429c5f705496c0a"
+    },
+    "MoE_seed20260933": {
+      "path": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260933\\best.adapter.pt",
+      "sha256": "abf410c8ac6fc155afb821830f99adf2ff96b8ff21c52a02e048ddcc9bc60058"
+    }
+  },
+  "base_checkpoint": "D:\\DSAI\\containter_new\\Mijn_RL\\checkpoints\\h20.best.pt",
+  "base_checkpoint_sha256": "aedd5e744607359318352f699cb4320f85dbbfc2c12b510047e04bd0013ef2d0",
+  "caserta_instances": 840,
+  "overlaps": {
+    "sealed_caserta": 0,
+    "train_caserta": 0,
+    "train_sealed": 0,
+    "train_validation": 0,
+    "validation_caserta": 0,
+    "validation_sealed": 0
+  },
+  "sealed_test_instances": 500,
+  "status": "PASS",
+  "train_instances": 1024,
+  "validation_instances": 200
+}

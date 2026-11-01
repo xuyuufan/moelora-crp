@@ -1,0 +1,27 @@
+% Requires \usepackage{booktabs}.
+\begin{table}[t]
+  \centering
+  \caption{H=20 comparison on the 840-instance Caserta benchmark. Values are
+  medians [IQR] across independent runs; lower is better.}
+  \label{tab:gp_moe_leveling_h20}
+  \setlength{\tabcolsep}{4.5pt}
+  \renewcommand{\arraystretch}{1.08}
+  \small
+  \begin{tabular}{llrcc}
+    \toprule
+    Method & Variant & Runs & $\mathrm{mean}(R/N)$ & Total relocations \\
+    \midrule
+    Leveling & -- & 1 & 1.0444 & 36,024 \\
+    GP & $C$ & 30 & 0.7548 [0.7535, 0.7574] & 24,772.0 [24,681.5, 24,871.5] \\
+    GP & $C{+}E$ & 30 & 0.7588 [0.7565, 0.7618] & 24,947.0 [24,768.2, 25,057.0] \\
+    GP & $C{+}O$ & 30 & 0.7622 [0.7597, 0.7642] & 25,045.5 [24,949.8, 25,149.2] \\
+    GP & $C{+}E{+}O$ & 30 & 0.7595 [0.7561, 0.7635] & 24,969.0 [24,861.5, 25,061.8] \\
+    \textbf{MoE-LoRA} & Dynamic routing & 3 & \textbf{0.7343 [0.7343, 0.7344]} & \textbf{24,027.0 [24,027.0, 24,027.5]} \\
+    \bottomrule
+  \end{tabular}
+  \vspace{2pt}
+  \parbox{0.98\linewidth}{\footnotesize \textit{Notes:} All methods use the
+  same Caserta manifest. GP reports 30 independently evolved rules per terminal
+  set; MoE-LoRA reports three formal seeds; Leveling is deterministic and
+  horizon-independent. No seed was selected using Caserta performance.}
+\end{table}

@@ -1,0 +1,37 @@
+__pycache__/
+.pytest_cache/
+.codex_tmp/
+/tmp/
+*.py[cod]
+
+# Release only the immutable base checkpoint.
+/checkpoints/*
+!/checkpoints/h20.best.pt
+
+# Release only the final large-scale domain; generated or historical domains
+# belong outside the active repository.
+/data/*
+!/data/online_crp/
+/data/online_crp/*
+!/data/online_crp/caserta_table2_840.json
+!/data/online_crp/caserta_table2_840.audit.json
+!/data/online_crp/lora_domains/
+/data/online_crp/lora_domains/*
+!/data/online_crp/lora_domains/large_scale_n100_150/
+!/data/online_crp/lora_domains/large_scale_n100_150/**
+
+# New runs stay local unless explicitly frozen. These exceptions are the
+# released three-seed experiment, sealed evaluation, and paper PDFs.
+/output/*
+!/output/moe_lora_long_20260917_seed20260913/
+!/output/moe_lora_long_20260917_seed20260913/**
+!/output/moe_lora_long_20260917_seed20260923/
+!/output/moe_lora_long_20260917_seed20260923/**
+!/output/moe_lora_long_20260917_seed20260933/
+!/output/moe_lora_long_20260917_seed20260933/**
+!/output/moe_lora_test_sealed_20260917/
+!/output/moe_lora_test_sealed_20260917/**
+!/output/moe_lora_caserta_20260918/
+!/output/moe_lora_caserta_20260918/**
+!/output/pdf/
+!/output/pdf/**

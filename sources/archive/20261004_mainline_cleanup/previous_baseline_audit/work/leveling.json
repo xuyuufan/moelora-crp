@@ -1,0 +1,19 @@
+{
+  "automatic_retrievals_observed": 27238,
+  "count_mismatches": 0,
+  "expected_total_relocations": 36024,
+  "final_yards_valid": 840,
+  "future_information_leakage_detected": false,
+  "horizon_dependency": false,
+  "illegal_actions": 0,
+  "instances_checked": 840,
+  "relocation_decisions_checked": 36024,
+  "replayed_total_relocations": 36024,
+  "reported_rows_checked": 3360,
+  "runtime_seconds": 3.2543239000005997,
+  "status": "PASS",
+  "strict_36024_match": true,
+  "test_instances": 840,
+  "test_manifest_sha256": "c28c975c8026a59a1b7995f8afe8a41e9e48b469835b9d2227a9bbe7a5371a12",
+  "validation": "FULL"
+}

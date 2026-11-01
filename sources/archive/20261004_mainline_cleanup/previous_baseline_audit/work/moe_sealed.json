@@ -1,0 +1,59 @@
+{
+  "adapter_episode_solutions_checked": 1500,
+  "adapter_relocation_decisions_checked": 174305,
+  "automatic_retrievals_observed": 187533,
+  "count_mismatches": 0,
+  "final_yards_valid": 1500,
+  "future_information_leakage_detected": false,
+  "illegal_actions_after_mask": 0,
+  "instances": 500,
+  "lookahead_horizon": 20,
+  "manifest_sha256": "f39dd732223255efe118b019aa699261262fd1946665544560b0f009acf6203a",
+  "methods": {
+    "MoE_seed20260913": {
+      "automatic_retrievals_observed": 62511,
+      "checkpoint": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260913\\best.adapter.pt",
+      "checkpoint_sha256": "a4c83c37cd20b8867ce679aace0087a2833f7d998d297a90d2d2b894128ce47b",
+      "count_mismatches": 0,
+      "episodes": 500,
+      "final_yards_valid": 500,
+      "illegal_actions_after_mask": 0,
+      "relocation_decisions_checked": 58163,
+      "seed": 20260913,
+      "selected_epoch": 2,
+      "total_relocations": 58163
+    },
+    "MoE_seed20260923": {
+      "automatic_retrievals_observed": 62511,
+      "checkpoint": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260923\\best.adapter.pt",
+      "checkpoint_sha256": "63d0b77a0a4e5c79ba65c508d985e81cc41be80928eb4bd3b429c5f705496c0a",
+      "count_mismatches": 0,
+      "episodes": 500,
+      "final_yards_valid": 500,
+      "illegal_actions_after_mask": 0,
+      "relocation_decisions_checked": 58074,
+      "seed": 20260923,
+      "selected_epoch": 2,
+      "total_relocations": 58074
+    },
+    "MoE_seed20260933": {
+      "automatic_retrievals_observed": 62511,
+      "checkpoint": "D:\\DSAI\\containter_new\\Mijn_RL\\output\\moe_lora_long_20260917_seed20260933\\best.adapter.pt",
+      "checkpoint_sha256": "abf410c8ac6fc155afb821830f99adf2ff96b8ff21c52a02e048ddcc9bc60058",
+      "count_mismatches": 0,
+      "episodes": 500,
+      "final_yards_valid": 500,
+      "illegal_actions_after_mask": 0,
+      "relocation_decisions_checked": 58068,
+      "seed": 20260933,
+      "selected_epoch": 4,
+      "total_relocations": 58068
+    }
+  },
+  "role": "official sealed large-scale test",
+  "runtime_seconds": 590.0620510000008,
+  "status": "PASS",
+  "test_manifest_used_for_selection": false,
+  "validation": "FULL",
+  "visible_target_count": 21
+}
